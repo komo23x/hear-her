@@ -4,175 +4,118 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>kieryn alexander | hear her</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html, body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        body {
-            font-family: Helvetica, Arial, sans-serif;
-            background-color: #789ebf;
-            color: white;
-            min-height: 100vh;
-            overflow-x: hidden;
-            overflow-y: auto;
-        }
-
-        /* Back link */
-        .back-link {
-            position: absolute;
-            top: 40px;
-            left: 40px;
-            color: white;
-            text-decoration: none;
-            font-size: 0.9rem;
-            letter-spacing: 0.05em;
-            text-transform: lowercase;
-            z-index: 100;
-        }
-
-        .back-link:hover {
-            text-decoration: underline;
-        }
-
-        /* Main content */
-        .artist-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 120px 40px 80px 40px;
-        }
-
-        .artist-name {
-            font-size: 2.5rem;
-            font-weight: normal;
-            text-transform: lowercase;
-            margin-bottom: 8px;
-            letter-spacing: -0.02em;
-        }
-
-        .artist-bio {
-            font-size: 1rem;
-            line-height: 1.2;
-            margin-bottom: 40px;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .artist-links {
-            margin-top: 0;
-        }
-
-        .artist-links a {
-            color: white;
-            text-decoration: underline;
-            font-size: 0.9rem;
-            margin-right: 20px;
-            text-transform: lowercase;
-        }
-
-        .artist-links a:hover {
-            opacity: 0.8;
-        }
-
-        /* Artist image */
-        .artist-image {
-            width: 100%;
-            max-width: 500px;
-            margin: 40px 0;
-        }
-
-        .artist-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* Work gallery */
-        .work-gallery {
-            margin-top: 40px;
-        }
-
-        .work-item {
-            margin-bottom: 40px;
-            max-width: 500px;
-        }
-
-        .work-item img {
-            width: 100%;
-            max-width: 500px;
-            height: auto;
-            display: block;
-        }
-
-        .work-description {
-            margin-top: 10px;
-            font-size: 0.7rem;
-            color: rgba(255, 255, 255, 0.9);
-            line-height: 1.4;
-            white-space: nowrap;
-            text-align: center;
-        }
-
-        .work-title {
-            font-style: italic;
-        }
-
-        /* Artist statement (after work images) */
-        .artist-statement {
-            font-size: 1rem;
-            line-height: 1.2;
-            margin-bottom: 12px;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        /* Mobile adjustments */
-        @media (max-width: 480px) {
-            .back-link {
-                top: 20px;
-                left: 20px;
-            }
-
-            .artist-content {
-                padding: 100px 20px 60px 20px;
-            }
-
-            .artist-name {
-                font-size: 1.8rem;
-            }
-
-            .artist-bio {
-                font-size: 0.95rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <a href="/" class="back-link">← back</a>
 
-    <div class="artist-content">
-        <h1 class="artist-name">kieryn alexander</h1>
-        
-        <div class="artist-links">
-            <a href="https://www.tiktok.com/@kierynalexander" target="_blank">tiktok</a>
-            <a href="https://www.instagram.com/kierynalexander" target="_blank">instagram</a>
-            <a href="https://kierynalexander.com" target="_blank">website</a>
+    <!-- Desktop Hero Section -->
+    <div class="desktop-hero">
+        <div class="hero-name">
+            kieryn alexander
+            <div class="hero-links">
+                <a href="https://www.tiktok.com/@kierynalexander" target="_blank">tiktok</a>
+                <a href="https://www.instagram.com/kierynalexander" target="_blank">instagram</a>
+                <a href="https://kierynalexander.com" target="_blank">website</a>
+            </div>
         </div>
-
-        <div class="artist-image">
+        <div class="floating-img float-1" onclick="document.getElementById('gallery-row').scrollIntoView({behavior: 'smooth', block: 'center'})">
+            <img src="work%201.jpg" alt="candy">
+        </div>
+        <div class="floating-img float-2" onclick="document.getElementById('gallery-row').scrollIntoView({behavior: 'smooth', block: 'center'})">
+            <img src="work%202.jpg" alt="picnic">
+        </div>
+        <div class="floating-img float-3" onclick="document.getElementById('artist-statement').scrollIntoView({behavior: 'smooth', block: 'center'})">
             <img src="artist_image.jpg" alt="kieryn alexander">
         </div>
+        <div class="floating-img float-4" onclick="document.getElementById('gallery-row').scrollIntoView({behavior: 'smooth', block: 'center'})">
+            <img src="work%203.jpg" alt="lilacs">
+        </div>
+        <div class="floating-img float-5" onclick="document.getElementById('gallery-row').scrollIntoView({behavior: 'smooth', block: 'center'})">
+            <img src="work%204.jpg" alt="buzz">
+        </div>
+    </div>
 
-        <p class="artist-bio">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    <!-- Desktop Bio Section -->
+    <div class="desktop-bio-section">
+        <p class="bio-label">bio / kieryn alexander</p>
+        <p class="bio-large-text">
+            <span>kieryn alexander is an artist born & based in champaign-urbana, illinois. her practice centers around painting with an intersection of music, fashion, spirituality, healing, business and design.</span>
+            <span>kieryn began painting in 2021, 5 years after falling in love with the medium while completing her art degree in los angeles, ca.</span>
+            <span>her practice has been self-taught and guided by exploration, communication, color, beauty and feeling. it is an extension of her way of being.</span>
         </p>
+    </div>
+
+    <!-- Desktop Staggered Gallery -->
+    <div class="desktop-staggered-gallery">
+        <div class="gallery-row" id="gallery-row">
+            <div class="gallery-item">
+                <img src="work%201.jpg" alt="candy">
+                <p class="gallery-caption"><span class="work-title">"candy"</span><br>oil pastel on canvas paper<br>16in by 20in ($300)</p>
+            </div>
+            <div class="gallery-item">
+                <img src="work%202.jpg" alt="picnic">
+                <p class="gallery-caption"><span class="work-title">"picnic"</span><br>acrylic, oil pastel & stick on canvas paper<br>16in by 20in ($300)</p>
+            </div>
+            <div class="gallery-item">
+                <img src="work%203.jpg" alt="lilacs">
+                <p class="gallery-caption"><span class="work-title">"lilacs"</span><br>oil pastel & stick on canvas paper<br>16in by 20in ($300)</p>
+            </div>
+            <div class="gallery-item">
+                <img src="work%204.jpg" alt="buzz">
+                <p class="gallery-caption"><span class="work-title">"buzz"</span><br>acrylic, oil pastel & stick on canvas paper<br>16in by 20in ($300)</p>
+            </div>
+        </div>
+
+        <div class="artist-statement-row" id="artist-statement">
+            <div class="artist-statement-image">
+                <img src="artist_image.jpg" alt="kieryn alexander">
+                <p class="staggered-caption">kieryn alexander</p>
+                <div class="statement-links">
+                    <a href="https://www.tiktok.com/@kierynalexander" target="_blank">tiktok</a>
+                    <a href="https://www.instagram.com/kierynalexander" target="_blank">instagram</a>
+                    <a href="https://kierynalexander.com" target="_blank">website</a>
+                </div>
+            </div>
+            <div class="artist-statement-text">
+                <p>4 selected works from my spring + summer 2024 series. the series was a painted reflection of my inner and outer landscapes… in a state of transition, just like the seasons, i painted the emotionality of everything that was moving in and around me.</p>
+                <p>painting this body of work, i found a sense of confidence in my voice, color theory, technique, medium, and overall sensibility.</p>
+                <p>in 2025 i curated a show with this series in my apartment. so much came together with it, and i saw the through line of what was being communicated in the pieces.</p>
+                <p>i titled the show "moving on" because the whole time i was painting i was moving homes, moving on in relationships, moving in my painting practice, and ultimately moving myself forward in life. all while sensing what was moving around me in nature, humanity, and the world at large.</p>
+                <p>this body of work taught me that movement is constant but you can capture a moment and make it forever lasting with a painting.</p>
+                <p>as an artist—and especially a female artist—i paint because i have so much to say, and this is one of the places it feels safe enough to say it fully. i paint abstract because it doesn't matter to me what it is, or if it even makes sense— it only matters to me how it feels.</p>
+                <p>the entire collection is viewable online via my website.</p>
+                <div class="statement-phrase">
+                    <span class="word-get">get</span>
+                    <span class="word-in">in</span>
+                    <span class="word-touch">touch</span>
+                    <span class="word-with">with</span>
+                    <span class="word-me">me.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Desktop Content (below hero) -->
+    <div class="desktop-content">
+        <div class="artist-header">
+            <div class="artist-header-text">
+                <h2 class="artist-name">kieryn alexander</h2>
+                
+                <div class="artist-links">
+                    <a href="https://www.tiktok.com/@kierynalexander" target="_blank">tiktok</a>
+                    <a href="https://www.instagram.com/kierynalexander" target="_blank">instagram</a>
+                    <a href="https://kierynalexander.com" target="_blank">website</a>
+                </div>
+
+                <p class="artist-bio">
+                    kieryn alexander is an artist born & based in champaign-urbana, illinois. her practice centers around painting with an intersection of music, fashion, spirituality, healing, business and design. kieryn began painting in 2021, 5 years after falling in love with the medium while completing her art degree in los angeles, ca. her practice has been self-taught and guided by exploration, communication, color, beauty and feeling. it is an extension of her way of being.</p>
+            </div>
+
+            <div class="artist-image">
+                <img src="artist_image.jpg" alt="kieryn alexander">
+            </div>
+        </div>
 
         <div class="work-gallery">
             <div class="work-item">
@@ -196,27 +139,134 @@
             </div>
         </div>
 
-        <p class="artist-statement">
-            4 selected works from my spring + summer 2024 series. the series was a painted reflection of my inner and outer landscapes… in a state of transition, just like the seasons, i painted the emotionality of everything that was moving in and around me.
-        </p>
-        <p class="artist-statement">
-            painting this body of work, i found a sense of confidence in my voice, color theory, technique, medium, and overall sensibility.
-        </p>
-        <p class="artist-statement">
-            in 2025 i curated a show with this series in my apartment. so much came together with it, and i saw the through line of what was being communicated in the pieces.
-        </p>
-        <p class="artist-statement">
-            i titled the show "moving on" because the whole time i was painting i was moving homes, moving on in relationships, moving in my painting practice, and ultimately moving myself forward in life. all while sensing what was moving around me in nature, humanity, and the world at large.
-        </p>
-        <p class="artist-statement">
-            this body of work taught me that movement is constant but you can capture a moment and make it forever lasting with a painting.
-        </p>
-        <p class="artist-statement">
-            as an artist—and especially a female artist—i paint because i have so much to say, and this is one of the places it feels safe enough to say it fully. i paint abstract because it doesn't matter to me what it is, or if it even makes sense— it only matters to me how it feels.
-        </p>
-        <p class="artist-statement">
-            the entire collection is viewable online via my website.
-        </p>
+        <div class="artist-statements">
+            <p class="artist-statement">
+                4 selected works from my spring + summer 2024 series. the series was a painted reflection of my inner and outer landscapes… in a state of transition, just like the seasons, i painted the emotionality of everything that was moving in and around me.
+            </p>
+            <p class="artist-statement">
+                painting this body of work, i found a sense of confidence in my voice, color theory, technique, medium, and overall sensibility.
+            </p>
+            <p class="artist-statement">
+                in 2025 i curated a show with this series in my apartment. so much came together with it, and i saw the through line of what was being communicated in the pieces.
+            </p>
+            <p class="artist-statement">
+                i titled the show "moving on" because the whole time i was painting i was moving homes, moving on in relationships, moving in my painting practice, and ultimately moving myself forward in life. all while sensing what was moving around me in nature, humanity, and the world at large.
+            </p>
+            <p class="artist-statement">
+                this body of work taught me that movement is constant but you can capture a moment and make it forever lasting with a painting.
+            </p>
+            <p class="artist-statement">
+                as an artist—and especially a female artist—i paint because i have so much to say, and this is one of the places it feels safe enough to say it fully. i paint abstract because it doesn't matter to me what it is, or if it even makes sense— it only matters to me how it feels.
+            </p>
+            <p class="artist-statement">
+                the entire collection is viewable online via my website.
+            </p>
+        </div>
     </div>
+
+    <!-- Mobile Content (original layout) -->
+    <div class="mobile-content">
+        <div class="artist-content">
+            <div class="artist-header">
+                <div class="artist-header-text">
+                    <h1 class="artist-name">kieryn alexander</h1>
+                    
+                    <div class="artist-links">
+                        <a href="https://www.tiktok.com/@kierynalexander" target="_blank">tiktok</a>
+                        <a href="https://www.instagram.com/kierynalexander" target="_blank">instagram</a>
+                        <a href="https://kierynalexander.com" target="_blank">website</a>
+                    </div>
+
+                    <div class="artist-image">
+                        <img src="artist_image.jpg" alt="kieryn alexander">
+                    </div>
+
+                    <p class="artist-bio">
+                        kieryn alexander is an artist born & based in champaign-urbana, illinois. her practice centers around painting with an intersection of music, fashion, spirituality, healing, business and design. kieryn began painting in 2021, 5 years after falling in love with the medium while completing her art degree in los angeles, ca. her practice has been self-taught and guided by exploration, communication, color, beauty and feeling. it is an extension of her way of being.</p>
+                </div>
+            </div>
+
+            <div class="work-gallery">
+                <div class="work-item">
+                    <img src="work%201.jpg" alt="candy">
+                    <p class="work-description"><span class="work-title">"candy"</span> oil pastel on canvas paper, 16in by 20in ($300)</p>
+                </div>
+
+                <div class="work-item">
+                    <img src="work%202.jpg" alt="picnic">
+                    <p class="work-description"><span class="work-title">"picnic"</span> acrylic, oil pastel & stick on canvas paper, 16in by 20in ($300)</p>
+                </div>
+
+                <div class="work-item">
+                    <img src="work%203.jpg" alt="lilacs">
+                    <p class="work-description"><span class="work-title">"lilacs"</span> oil pastel & stick on canvas paper, 16in by 20in ($300)</p>
+                </div>
+
+                <div class="work-item">
+                    <img src="work%204.jpg" alt="buzz">
+                    <p class="work-description"><span class="work-title">"buzz"</span> acrylic, oil pastel & stick on canvas paper, 16in by 20in ($300)</p>
+                </div>
+            </div>
+
+            <div class="artist-statements">
+                <p class="artist-statement">
+                    4 selected works from my spring + summer 2024 series. the series was a painted reflection of my inner and outer landscapes… in a state of transition, just like the seasons, i painted the emotionality of everything that was moving in and around me.
+                </p>
+                <p class="artist-statement">
+                    painting this body of work, i found a sense of confidence in my voice, color theory, technique, medium, and overall sensibility.
+                </p>
+                <p class="artist-statement">
+                    in 2025 i curated a show with this series in my apartment. so much came together with it, and i saw the through line of what was being communicated in the pieces.
+                </p>
+                <p class="artist-statement">
+                    i titled the show "moving on" because the whole time i was painting i was moving homes, moving on in relationships, moving in my painting practice, and ultimately moving myself forward in life. all while sensing what was moving around me in nature, humanity, and the world at large.
+                </p>
+                <p class="artist-statement">
+                    this body of work taught me that movement is constant but you can capture a moment and make it forever lasting with a painting.
+                </p>
+                <p class="artist-statement">
+                    as an artist—and especially a female artist—i paint because i have so much to say, and this is one of the places it feels safe enough to say it fully. i paint abstract because it doesn't matter to me what it is, or if it even makes sense— it only matters to me how it feels.
+                </p>
+                <p class="artist-statement">
+                    the entire collection is viewable online via my website.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Parallax scroll effect for desktop hero
+        if (window.innerWidth > 480) {
+            const heroName = document.querySelector('.hero-name');
+            const floatingImgs = document.querySelectorAll('.floating-img:not(.float-3):not(.float-4)');
+            const heroSection = document.querySelector('.desktop-hero');
+            
+            window.addEventListener('scroll', function() {
+                const scrollY = window.scrollY;
+                const heroHeight = window.innerHeight;
+                
+                // Fade out the name as we scroll
+                if (scrollY < heroHeight) {
+                    const opacity = 1 - (scrollY / (heroHeight * 0.6));
+                    heroName.style.opacity = Math.max(0, opacity);
+                    
+                    // Move images up faster than scroll (parallax) - except float-3 and float-4
+                    floatingImgs.forEach((img, index) => {
+                        const speed = 0.3 + (index * 0.05);
+                        img.style.transform = `translateY(${scrollY * speed}px)`;
+                    });
+                } else {
+                    heroName.style.opacity = 0;
+                }
+                
+                // Hide fixed name after scrolling past hero
+                if (scrollY > heroHeight) {
+                    heroName.style.display = 'none';
+                } else {
+                    heroName.style.display = 'block';
+                }
+            });
+        }
+    </script>
 </body>
 </html>

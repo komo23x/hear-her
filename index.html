@@ -26,42 +26,135 @@
             background-color: #789ebf;
         }
 
-        /* Video background */
+        /* Video background - hide on desktop */
         .video-background {
+            display: none;
+        }
+
+        /* Mobile: show video */
+        @media (max-width: 480px) {
+            .video-background {
+                display: block;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                height: 100dvh;
+                object-fit: cover;
+                z-index: -1;
+                pointer-events: none;
+                -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
+                mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
+            }
+        }
+
+        /* Desktop scattered images */
+        .desktop-scattered-images {
+            display: block;
             position: fixed;
             top: 0;
             left: 0;
-            width: 100vw;
-            height: 100vh;
-            height: 100dvh;
-            object-fit: cover;
-            z-index: -1;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
             pointer-events: none;
         }
 
-        /* Fade overlay for Safari - top and bottom gradients */
-        @supports (-webkit-touch-callout: none) {
-            .video-fade-top,
-            .video-fade-bottom {
-                position: fixed;
-                left: 0;
-                width: 100%;
-                z-index: 0;
-                pointer-events: none;
-            }
+        .scattered-img {
+            position: absolute;
+            cursor: grab;
+            pointer-events: auto;
+            transition: box-shadow 0.4s ease, transform 0.4s ease;
+            user-select: none;
+            z-index: 0;
+            animation: float 6s ease-in-out infinite;
+        }
 
-            .video-fade-top {
-                top: 0;
-                height: 80px;
-                background: linear-gradient(to bottom, #789ebf 0%, transparent 100%);
-            }
+        .scattered-img:nth-child(1) { animation-delay: 0s; }
+        .scattered-img:nth-child(2) { animation-delay: 1s; }
+        .scattered-img:nth-child(3) { animation-delay: 2s; }
+        .scattered-img:nth-child(4) { animation-delay: 3s; }
+        .scattered-img:nth-child(5) { animation-delay: 4s; }
 
-            .video-fade-bottom {
-                bottom: 0;
-                height: 80px;
-                background: linear-gradient(to top, #789ebf 0%, transparent 100%);
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-25px) rotate(2deg); }
+        }
+
+        .scattered-img:hover {
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .scattered-img.dragging {
+            cursor: grabbing;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+            z-index: 5;
+            transition: box-shadow 0.2s ease;
+            animation-play-state: paused;
+        }
+
+        .scattered-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+            pointer-events: none;
+            filter: blur(15px);
+            transition: filter 0.4s ease;
+        }
+
+        .scattered-img:hover img {
+            filter: blur(0);
+        }
+
+        .scattered-img.dragging img {
+            filter: blur(0);
+        }
+
+        .scatter-1 {
+            top: 8%;
+            left: 8%;
+            width: 180px;
+        }
+
+        .scatter-2 {
+            top: 5%;
+            right: 15%;
+            width: 150px;
+        }
+
+        .scatter-3 {
+            top: 45%;
+            left: 5%;
+            width: 140px;
+        }
+
+        .scatter-4 {
+            bottom: 10%;
+            left: 20%;
+            width: 160px;
+        }
+
+        .scatter-5 {
+            top: 35%;
+            right: 8%;
+            width: 170px;
+        }
+
+        .scatter-6 {
+            bottom: 15%;
+            right: 12%;
+            width: 145px;
+        }
+
+        /* Hide scattered images on mobile */
+        @media (max-width: 480px) {
+            .desktop-scattered-images {
+                display: none;
             }
         }
+
+
 
         /* Hide iOS video controls and play button */
         .video-background::-webkit-media-controls {
@@ -78,27 +171,28 @@
         /* Corner text styling */
         .corner-text {
             position: fixed;
-            font-size: 0.9rem;
+            font-size: 1.1rem;
             letter-spacing: 0.05em;
             text-transform: lowercase;
+            z-index: 10;
         }
 
         .top-left {
             top: 25px;
             left: 25px;
-            color: #3d5a73;
+            color: #2a4157;
         }
 
         .top-right {
             top: 25px;
             right: 25px;
-            color: #3d5a73;
+            color: #2a4157;
         }
 
         .bottom-right {
             bottom: 25px;
             right: 25px;
-            color: #3d5a73;
+            color: #2a4157;
         }
 
         /* Center logo */
@@ -107,10 +201,11 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            z-index: 10;
         }
 
         .center-logo img {
-            max-width: 300px;
+            max-width: 450px;
             height: auto;
         }
 
@@ -122,8 +217,9 @@
             transform: translateY(-50%);
             text-align: right;
             color: white;
-            font-size: 0.85rem;
+            font-size: 1.1rem;
             line-height: 1.4;
+            z-index: 10;
         }
 
         .event-info a {
@@ -141,9 +237,10 @@
             bottom: 25px;
             left: 25px;
             color: white;
-            font-size: 0.85rem;
+            font-size: 1.1rem;
             line-height: 1.4;
             text-transform: lowercase;
+            z-index: 10;
         }
 
         .artist-list a {
@@ -167,6 +264,15 @@
                 bottom: 160px;
                 transform: none;
                 right: 25px;
+                font-size: 0.85rem;
+            }
+
+            .artist-list {
+                font-size: 0.85rem;
+            }
+
+            .corner-text {
+                font-size: 0.85rem;
             }
 
             .center-logo img {
@@ -325,13 +431,30 @@
         <span class="tap-text">tap to enter</span>
     </div>
 
-    <!-- Video background -->
+    <!-- Video background (mobile only) -->
     <video class="video-background" id="videoBackground" autoplay muted loop playsinline webkit-playsinline>
     </video>
+
+    <!-- Desktop scattered images -->
+    <div class="desktop-scattered-images">
+        <div class="scattered-img scatter-1" data-artist="kieryn">
+            <img src="kieryn/work%201.jpg" alt="artwork" draggable="false">
+        </div>
+        <div class="scattered-img scatter-2" data-artist="kieryn">
+            <img src="kieryn/work%202.jpg" alt="artwork" draggable="false">
+        </div>
+        <div class="scattered-img scatter-3" data-artist="kieryn">
+            <img src="kieryn/artist_image.jpg" alt="artist" draggable="false">
+        </div>
+        <div class="scattered-img scatter-4" data-artist="kieryn">
+            <img src="kieryn/work%203.jpg" alt="artwork" draggable="false">
+        </div>
+        <div class="scattered-img scatter-5" data-artist="kieryn">
+            <img src="kieryn/work%204.jpg" alt="artwork" draggable="false">
+        </div>
+    </div>
     
-    <!-- Fade overlays for Safari -->
-    <div class="video-fade-top"></div>
-    <div class="video-fade-bottom"></div>
+
 
     <!-- Top corners -->
     <div class="corner-text top-left">collective</div>
@@ -344,7 +467,7 @@
 
     <!-- Right side event info -->
     <div class="event-info">
-        studio at havn<br>
+        <a href="https://www.google.com/maps/dir/?api=1&destination=5651+University+Wy+NE,+Seattle,+WA+98105" target="_blank">studio at havn</a><br>
         february 21 6-9PM<br>
         february 22 3-6PM<br>
         <a href="https://www.tidytotes.art/goods/p/hear-her-exhibition-ticket">buy tickets here</a>
@@ -380,12 +503,8 @@
         const video = document.getElementById('videoBackground');
         const tapOverlay = document.getElementById('tapOverlay');
         
-        // Set video source based on screen width
-        if (window.innerWidth <= 480) {
-            video.src = 'background-video-mobile.mp4';
-        } else {
-            video.src = 'background-video-desktop.mp4';
-        }
+        // Use mobile video for all screen sizes
+        video.src = 'background-video-mobile.mp4';
         
         function hideOverlay() {
             tapOverlay.classList.add('hidden');
@@ -405,18 +524,25 @@
             video.play().then(function() {
                 hideOverlay();
             }).catch(function() {
-                // Autoplay blocked - wait for tap
+                // Autoplay blocked - wait for tap/click
             });
             
-            // Handle tap/click on overlay
-            tapOverlay.addEventListener('click', function() {
-                video.play().then(hideOverlay);
+            // Handle tap/click on overlay (works for both mobile and desktop)
+            tapOverlay.addEventListener('click', function(e) {
+                e.preventDefault();
+                video.play().then(hideOverlay).catch(function() {
+                    // If video still won't play, hide overlay anyway
+                    hideOverlay();
+                });
             });
             
             tapOverlay.addEventListener('touchstart', function(e) {
                 e.preventDefault();
-                video.play().then(hideOverlay);
-            });
+                video.play().then(hideOverlay).catch(function() {
+                    // If video still won't play, hide overlay anyway
+                    hideOverlay();
+                });
+            }, { passive: false });
         }
 
         // Graceful video loop - restart slightly before end to avoid flash
@@ -545,6 +671,89 @@
                 showArtist(path);
                 history.replaceState({ artist: path }, '', '/' + path);
             }
+        }
+
+        // Draggable scattered images functionality
+        if (window.innerWidth > 480) {
+            const scatteredImgs = document.querySelectorAll('.scattered-img');
+            let draggedEl = null;
+            let startX, startY, initialX, initialY;
+            let isDragging = false;
+            let mouseDownTime = 0;
+            let highestZ = 5;
+
+            scatteredImgs.forEach(img => {
+                img.addEventListener('mousedown', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    draggedEl = this;
+                    isDragging = false;
+                    mouseDownTime = Date.now();
+                    
+                    // Get current position
+                    const rect = this.getBoundingClientRect();
+                    initialX = rect.left;
+                    initialY = rect.top;
+                    startX = e.clientX;
+                    startY = e.clientY;
+                    
+                    // Bring to front of other images (but still under text)
+                    highestZ++;
+                    if (highestZ > 9) highestZ = 1;
+                    this.style.zIndex = highestZ;
+                    
+                    // Set position to fixed pixels instead of CSS percentages
+                    this.style.left = initialX + 'px';
+                    this.style.top = initialY + 'px';
+                    this.style.right = 'auto';
+                    this.style.bottom = 'auto';
+                    
+                    this.classList.add('dragging');
+                });
+
+                // Block ALL click events - we handle navigation in mouseup
+                img.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    e.stopImmediatePropagation();
+                    return false;
+                }, true);
+            });
+
+            document.addEventListener('mousemove', function(e) {
+                if (!draggedEl) return;
+                
+                const dx = e.clientX - startX;
+                const dy = e.clientY - startY;
+                
+                // Any movement counts as dragging
+                if (Math.abs(dx) > 2 || Math.abs(dy) > 2) {
+                    isDragging = true;
+                }
+                
+                draggedEl.style.left = (initialX + dx) + 'px';
+                draggedEl.style.top = (initialY + dy) + 'px';
+            });
+
+            document.addEventListener('mouseup', function(e) {
+                if (!draggedEl) return;
+                
+                const clickDuration = Date.now() - mouseDownTime;
+                const artist = draggedEl.dataset.artist;
+                
+                draggedEl.classList.remove('dragging');
+                
+                // Only navigate if: not dragging AND click was quick (under 200ms)
+                if (!isDragging && clickDuration < 200 && artist) {
+                    // Use setTimeout to navigate after event completes
+                    setTimeout(function() {
+                        window.location.href = '/' + artist + '/';
+                    }, 10);
+                }
+                
+                draggedEl = null;
+                isDragging = false;
+            });
         }
     </script>
 </body>
