@@ -282,11 +282,29 @@
             color: white;
         }
 
+        .site-footer .mobile-text {
+            display: none;
+        }
+
         @media (max-width: 480px) {
             .site-footer {
                 font-size: 0.7rem;
                 bottom: 15px;
-                right: 15px;
+                left: 50%;
+                transform: translateX(-50%);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 2px;
+            }
+
+            .site-footer .desktop-text {
+                display: none;
+            }
+
+            .site-footer .mobile-text {
+                display: block;
             }
         }
 
@@ -503,7 +521,7 @@
         <a href="https://www.google.com/maps/dir/?api=1&destination=5651+University+Wy+NE,+Seattle,+WA+98105" target="_blank">studio at havn</a><br>
         february 21 6-9PM<br>
         february 22 3-6PM<br>
-        <a href="https://www.tidytotes.art/goods/p/hear-her-exhibition-ticket">buy tickets here</a>
+        <a href="https://www.tidytotes.art/goods/p/hear-her-exhibition-ticket" target="_blank">buy tickets here</a>
     </div>
 
     <!-- Bottom left artist list -->
@@ -545,13 +563,25 @@
             // Remember that user has entered
             sessionStorage.setItem('hasEntered', 'true');
         }
+
+        function showOverlay() {
+            tapOverlay.classList.remove('hidden');
+            tapOverlay.style.display = 'flex';
+        }
         
         // Check if user has already entered (coming back from artist page)
         if (sessionStorage.getItem('hasEntered') === 'true') {
-            // Skip overlay, just play video
-            tapOverlay.remove();
+            // Try to autoplay, if it fails show the overlay again
             video.muted = true;
-            video.play().catch(() => {});
+            video.play().then(function() {
+                // Autoplay worked, remove overlay
+                tapOverlay.remove();
+            }).catch(function() {
+                // Autoplay failed (common on mobile back navigation)
+                // Show the tap overlay again
+                showOverlay();
+                sessionStorage.removeItem('hasEntered');
+            });
         } else {
             // Try to autoplay (works on desktop)
             video.play().then(function() {
@@ -559,24 +589,24 @@
             }).catch(function() {
                 // Autoplay blocked - wait for tap/click
             });
-            
-            // Handle tap/click on overlay (works for both mobile and desktop)
-            tapOverlay.addEventListener('click', function(e) {
-                e.preventDefault();
-                video.play().then(hideOverlay).catch(function() {
-                    // If video still won't play, hide overlay anyway
-                    hideOverlay();
-                });
-            });
-            
-            tapOverlay.addEventListener('touchstart', function(e) {
-                e.preventDefault();
-                video.play().then(hideOverlay).catch(function() {
-                    // If video still won't play, hide overlay anyway
-                    hideOverlay();
-                });
-            }, { passive: false });
         }
+        
+        // Handle tap/click on overlay (works for both mobile and desktop)
+        tapOverlay.addEventListener('click', function(e) {
+            e.preventDefault();
+            video.play().then(hideOverlay).catch(function() {
+                // If video still won't play, hide overlay anyway
+                hideOverlay();
+            });
+        });
+        
+        tapOverlay.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+            video.play().then(hideOverlay).catch(function() {
+                // If video still won't play, hide overlay anyway
+                hideOverlay();
+            });
+        }, { passive: false });
 
         // Graceful video loop - restart slightly before end to avoid flash
         video.addEventListener('timeupdate', function() {
@@ -790,6 +820,6 @@
         }
     </script>
 
-    <footer class="site-footer">web design & code by <a href="https://komal-yadav.com/" target="_blank">komal yadav</a> © 2026 all rights reserved.</footer>
+    <footer class="site-footer"><span class="desktop-text">web design & code by <a href="https://komal-yadav.com/" target="_blank">komal yadav</a> © 2026 all rights reserved.</span><span class="mobile-text">web design by <a href="https://komal-yadav.com/" target="_blank">komal</a><br>© 2026 all rights reserved.</span></footer>
 </body>
 </html>
