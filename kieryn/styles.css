@@ -521,6 +521,29 @@ body {
     }
 }
 
+/* Footer styling */
+.site-footer {
+    position: fixed;
+    bottom: 25px;
+    left: 25px;
+    right: 25px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.75rem;
+    letter-spacing: 0.02em;
+    text-transform: lowercase;
+    display: flex;
+    justify-content: space-between;
+}
+
+.site-footer a {
+    color: inherit;
+    text-decoration: underline;
+}
+
+.site-footer a:hover {
+    opacity: 0.8;
+}
+
 /* Mobile layout */
 @media (max-width: 480px) {
     .back-link {

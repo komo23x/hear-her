@@ -225,10 +225,11 @@
         .event-info a {
             color: white;
             text-decoration: underline;
+            transition: color 0.3s ease;
         }
 
         .event-info a:hover {
-            text-decoration: underline;
+            color: #2a4157;
         }
 
         /* Artist list - bottom left */
@@ -247,14 +248,46 @@
             color: white;
             text-decoration: underline;
             display: block;
+            transition: color 0.3s ease;
         }
 
         .artist-list a:hover {
-            text-decoration: underline;
+            color: #2a4157;
         }
 
         .artist-list span {
             display: block;
+        }
+
+        /* Footer styling */
+        .site-footer {
+            position: fixed;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #2a4157;
+            font-size: 0.75rem;
+            letter-spacing: 0.02em;
+            text-transform: lowercase;
+            z-index: 10;
+        }
+
+        .site-footer a {
+            color: inherit;
+            text-decoration: underline;
+            transition: color 0.3s ease;
+        }
+
+        .site-footer a:hover {
+            color: white;
+        }
+
+        @media (max-width: 480px) {
+            .site-footer {
+                font-size: 0.7rem;
+                bottom: 15px;
+                right: 15px;
+            }
         }
 
         /* Mobile responsive adjustments */
@@ -756,5 +789,7 @@
             });
         }
     </script>
+
+    <footer class="site-footer">web design & code by <a href="https://komal-yadav.com/" target="_blank">komal yadav</a> © 2026 all rights reserved.</footer>
 </body>
 </html>
