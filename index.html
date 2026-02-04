@@ -2,33 +2,759 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>hear her</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500&display=swap');
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        body {
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #fff;
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
         }
 
-        .coming-soon {
+        body {
             font-family: Helvetica, Arial, sans-serif;
-            font-size: 1.5rem;
+            background-color: #789ebf;
+        }
+
+        /* Video background - hide on desktop */
+        .video-background {
+            display: none;
+        }
+
+        /* Mobile: show video */
+        @media (max-width: 480px) {
+            .video-background {
+                display: block;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                height: 100dvh;
+                object-fit: cover;
+                z-index: -1;
+                pointer-events: none;
+                -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
+                mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
+            }
+        }
+
+        /* Desktop scattered images */
+        .desktop-scattered-images {
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .scattered-img {
+            position: absolute;
+            cursor: grab;
+            pointer-events: auto;
+            transition: box-shadow 0.4s ease, transform 0.4s ease;
+            user-select: none;
+            z-index: 0;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .scattered-img:nth-child(1) { animation-delay: 0s; }
+        .scattered-img:nth-child(2) { animation-delay: 1s; }
+        .scattered-img:nth-child(3) { animation-delay: 2s; }
+        .scattered-img:nth-child(4) { animation-delay: 3s; }
+        .scattered-img:nth-child(5) { animation-delay: 4s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-25px) rotate(2deg); }
+        }
+
+        .scattered-img:hover {
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .scattered-img.dragging {
+            cursor: grabbing;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+            z-index: 5;
+            transition: box-shadow 0.2s ease;
+            animation-play-state: paused;
+        }
+
+        .scattered-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+            pointer-events: none;
+            filter: blur(15px);
+            transition: filter 0.4s ease;
+        }
+
+        .scattered-img:hover img {
+            filter: blur(0);
+        }
+
+        .scattered-img.dragging img {
+            filter: blur(0);
+        }
+
+        .scatter-1 {
+            top: 8%;
+            left: 8%;
+            width: 180px;
+        }
+
+        .scatter-2 {
+            top: 5%;
+            right: 15%;
+            width: 150px;
+        }
+
+        .scatter-3 {
+            top: 45%;
+            left: 5%;
+            width: 140px;
+        }
+
+        .scatter-4 {
+            bottom: 10%;
+            left: 20%;
+            width: 160px;
+        }
+
+        .scatter-5 {
+            top: 35%;
+            right: 8%;
+            width: 170px;
+        }
+
+        .scatter-6 {
+            bottom: 15%;
+            right: 12%;
+            width: 145px;
+        }
+
+        /* Hide scattered images on mobile */
+        @media (max-width: 480px) {
+            .desktop-scattered-images {
+                display: none;
+            }
+        }
+
+
+
+        /* Hide iOS video controls and play button */
+        .video-background::-webkit-media-controls {
+            display: none !important;
+        }
+        .video-background::-webkit-media-controls-start-playback-button {
+            display: none !important;
+            -webkit-appearance: none;
+        }
+        .video-background::-webkit-media-controls-panel {
+            display: none !important;
+        }
+
+        /* Corner text styling */
+        .corner-text {
+            position: fixed;
+            font-size: 1.1rem;
+            letter-spacing: 0.05em;
             text-transform: lowercase;
+            z-index: 10;
+        }
+
+        .top-left {
+            top: 25px;
+            left: 25px;
+            color: #2a4157;
+        }
+
+        .top-right {
+            top: 25px;
+            right: 25px;
+            color: #2a4157;
+        }
+
+        .bottom-right {
+            bottom: 25px;
+            right: 25px;
+            color: #2a4157;
+        }
+
+        /* Center logo */
+        .center-logo {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+        }
+
+        .center-logo img {
+            max-width: 450px;
+            height: auto;
+        }
+
+        /* Right side event info */
+        .event-info {
+            position: fixed;
+            right: 25px;
+            top: 55%;
+            transform: translateY(-50%);
+            text-align: right;
+            color: white;
+            font-size: 1.1rem;
+            line-height: 1.4;
+            z-index: 10;
+        }
+
+        .event-info a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .event-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Artist list - bottom left */
+        .artist-list {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            color: white;
+            font-size: 1.1rem;
+            line-height: 1.4;
+            text-transform: lowercase;
+            z-index: 10;
+        }
+
+        .artist-list a {
+            color: white;
+            text-decoration: underline;
+            display: block;
+        }
+
+        .artist-list a:hover {
+            text-decoration: underline;
+        }
+
+        .artist-list span {
+            display: block;
+        }
+
+        /* Mobile responsive adjustments */
+        @media (max-width: 480px) {
+            .event-info {
+                top: auto;
+                bottom: 160px;
+                transform: none;
+                right: 25px;
+                font-size: 0.85rem;
+            }
+
+            .artist-list {
+                font-size: 0.85rem;
+            }
+
+            .corner-text {
+                font-size: 0.85rem;
+            }
+
+            .center-logo img {
+                max-width: 220px;
+            }
+        }
+
+        /* Tap to enter overlay */
+        .tap-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #789ebf;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            cursor: pointer;
+            transition: opacity 0.5s ease;
+        }
+
+        .tap-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .tap-square {
+            width: 40px;
+            height: 40px;
+            animation: colorCycle 2s ease-in-out infinite;
+        }
+
+        @keyframes colorCycle {
+            0% { background-color: #4A90D9; }
+            33% { background-color: #9B59B6; }
+            66% { background-color: #E74C3C; }
+            100% { background-color: #4A90D9; }
+        }
+
+        .tap-text {
+            color: white;
+            font-size: 0.9rem;
             letter-spacing: 0.1em;
-            color: #000;
+            text-transform: lowercase;
+        }
+
+        /* Artist overlay */
+        .artist-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #789ebf;
+            z-index: 1000;
+            overflow-y: auto;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .artist-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .artist-overlay .back-link {
+            position: fixed;
+            top: 40px;
+            left: 40px;
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            text-transform: lowercase;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .artist-overlay .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .artist-overlay .artist-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 120px 40px 80px 40px;
+            color: white;
+        }
+
+        .artist-overlay .artist-name {
+            font-size: 2.5rem;
+            font-weight: normal;
+            text-transform: lowercase;
+            margin-bottom: 20px;
+            letter-spacing: 0.02em;
+        }
+
+        .artist-overlay .artist-links {
+            margin-bottom: 40px;
+        }
+
+        .artist-overlay .artist-links a {
+            color: white;
+            text-decoration: underline;
+            font-size: 0.9rem;
+            margin-right: 20px;
+            text-transform: lowercase;
+        }
+
+        .artist-overlay .artist-image {
+            width: 100%;
+            max-width: 500px;
+            margin: 20px 0 40px 0;
+        }
+
+        .artist-overlay .artist-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .artist-overlay .artist-bio {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        @media (max-width: 480px) {
+            .artist-overlay .back-link {
+                top: 20px;
+                left: 20px;
+            }
+
+            .artist-overlay .artist-content {
+                padding: 100px 20px 60px 20px;
+            }
+
+            .artist-overlay .artist-name {
+                font-size: 1.8rem;
+            }
         }
     </style>
 </head>
 <body>
-    <p class="coming-soon">coming soon</p>
+    <!-- Tap to enter overlay -->
+    <div class="tap-overlay" id="tapOverlay">
+        <div class="tap-square"></div>
+        <span class="tap-text">tap to enter</span>
+    </div>
+
+    <!-- Video background (mobile only) -->
+    <video class="video-background" id="videoBackground" autoplay muted loop playsinline webkit-playsinline>
+    </video>
+
+    <!-- Desktop scattered images -->
+    <div class="desktop-scattered-images">
+        <div class="scattered-img scatter-1" data-artist="kieryn">
+            <img src="kieryn/work%201.jpg" alt="artwork" draggable="false">
+        </div>
+        <div class="scattered-img scatter-2" data-artist="kieryn">
+            <img src="kieryn/work%202.jpg" alt="artwork" draggable="false">
+        </div>
+        <div class="scattered-img scatter-3" data-artist="kieryn">
+            <img src="kieryn/artist_image.jpg" alt="artist" draggable="false">
+        </div>
+        <div class="scattered-img scatter-4" data-artist="kieryn">
+            <img src="kieryn/work%203.jpg" alt="artwork" draggable="false">
+        </div>
+        <div class="scattered-img scatter-5" data-artist="kieryn">
+            <img src="kieryn/work%204.jpg" alt="artwork" draggable="false">
+        </div>
+    </div>
+    
+
+
+    <!-- Top corners -->
+    <div class="corner-text top-left">collective</div>
+    <div class="corner-text top-right">art</div>
+
+    <!-- Center logo -->
+    <div class="center-logo">
+        <img src="hear-her-handwriting.png" alt="hear her">
+    </div>
+
+    <!-- Right side event info -->
+    <div class="event-info">
+        <a href="https://www.google.com/maps/dir/?api=1&destination=5651+University+Wy+NE,+Seattle,+WA+98105" target="_blank">studio at havn</a><br>
+        february 21 6-9PM<br>
+        february 22 3-6PM<br>
+        <a href="https://www.tidytotes.art/goods/p/hear-her-exhibition-ticket">buy tickets here</a>
+    </div>
+
+    <!-- Bottom left artist list -->
+    <div class="artist-list">
+        <a href="/tidy/">tidy totes</a>
+        <a href="/komal/">komal yadav</a>
+        <a href="/amrit/">amrit singh</a>
+        <a href="/highbrow/">highbrow hedonist</a>
+        <a href="/kieryn/">kieryn alexander</a>
+        <a href="/soleilroz/">soleilroz</a>
+        <a href="/isabelle/">isabelle zhao</a>
+        <a href="/nubiya/">nubiya zavala</a>
+    </div>
+
+    <!-- Artist overlay -->
+    <div class="artist-overlay" id="artistOverlay">
+        <span class="back-link" id="backLink">← back</span>
+        <div class="artist-content">
+            <h1 class="artist-name" id="artistName"></h1>
+            <div class="artist-links" id="artistLinks"></div>
+            <div class="artist-image" id="artistImage"></div>
+            <p class="artist-bio" id="artistBio"></p>
+        </div>
+    </div>
+
+    <!-- Bottom right -->
+    <div class="corner-text bottom-right">exhibition</div>
+
+    <script>
+        const video = document.getElementById('videoBackground');
+        const tapOverlay = document.getElementById('tapOverlay');
+        
+        // Use mobile video for all screen sizes
+        video.src = 'background-video-mobile.mp4';
+        
+        function hideOverlay() {
+            tapOverlay.classList.add('hidden');
+            setTimeout(() => tapOverlay.remove(), 500);
+            // Remember that user has entered
+            sessionStorage.setItem('hasEntered', 'true');
+        }
+        
+        // Check if user has already entered (coming back from artist page)
+        if (sessionStorage.getItem('hasEntered') === 'true') {
+            // Skip overlay, just play video
+            tapOverlay.remove();
+            video.muted = true;
+            video.play().catch(() => {});
+        } else {
+            // Try to autoplay (works on desktop)
+            video.play().then(function() {
+                hideOverlay();
+            }).catch(function() {
+                // Autoplay blocked - wait for tap/click
+            });
+            
+            // Handle tap/click on overlay (works for both mobile and desktop)
+            tapOverlay.addEventListener('click', function(e) {
+                e.preventDefault();
+                video.play().then(hideOverlay).catch(function() {
+                    // If video still won't play, hide overlay anyway
+                    hideOverlay();
+                });
+            });
+            
+            tapOverlay.addEventListener('touchstart', function(e) {
+                e.preventDefault();
+                video.play().then(hideOverlay).catch(function() {
+                    // If video still won't play, hide overlay anyway
+                    hideOverlay();
+                });
+            }, { passive: false });
+        }
+
+        // Graceful video loop - restart slightly before end to avoid flash
+        video.addEventListener('timeupdate', function() {
+            if (video.currentTime > video.duration - 0.1) {
+                video.currentTime = 0;
+                video.play();
+            }
+        });
+
+        // Artist data
+        const artists = {
+            tidy: {
+                name: 'tidy totes',
+                bio: 'Artist bio coming soon.',
+                links: '',
+                image: ''
+            },
+            komal: {
+                name: 'komal yadav',
+                bio: 'Artist bio coming soon.',
+                links: '',
+                image: ''
+            },
+            amrit: {
+                name: 'amrit singh',
+                bio: 'Artist bio coming soon.',
+                links: '',
+                image: ''
+            },
+            highbrow: {
+                name: 'highbrow hedonist',
+                bio: 'Artist bio coming soon.',
+                links: '',
+                image: ''
+            },
+            kieryn: {
+                name: 'kieryn alexander',
+                bio: 'Artist bio coming soon.',
+                links: '<a href="https://www.tiktok.com/@kierynalexander" target="_blank">tiktok</a><a href="https://www.instagram.com/kierynalexander" target="_blank">instagram</a><a href="https://kierynalexander.com" target="_blank">website</a>',
+                image: 'kieryn/artist_image.jpg'
+            },
+            soleilroz: {
+                name: 'soleilroz',
+                bio: 'Artist bio coming soon.',
+                links: '',
+                image: ''
+            },
+            isabelle: {
+                name: 'isabelle zhao',
+                bio: 'Artist bio coming soon.',
+                links: '',
+                image: ''
+            },
+            nubiya: {
+                name: 'nubiya zavala',
+                bio: 'Artist bio coming soon.',
+                links: '',
+                image: ''
+            }
+        };
+
+        // Artist overlay functionality
+        const artistOverlay = document.getElementById('artistOverlay');
+        const artistName = document.getElementById('artistName');
+        const artistBio = document.getElementById('artistBio');
+        const artistLinks = document.getElementById('artistLinks');
+        const artistImage = document.getElementById('artistImage');
+        const backLink = document.getElementById('backLink');
+
+        // Function to show artist
+        function showArtist(artistKey) {
+            const artist = artists[artistKey];
+            if (artist) {
+                artistName.textContent = artist.name;
+                artistBio.textContent = artist.bio;
+                artistLinks.innerHTML = artist.links;
+                artistImage.innerHTML = artist.image ? '<img src="' + artist.image + '" alt="' + artist.name + '">' : '';
+                artistOverlay.classList.add('active');
+            }
+        }
+
+        // Function to hide artist
+        function hideArtist() {
+            artistOverlay.classList.remove('active');
+        }
+
+        // Handle artist link clicks
+        document.querySelectorAll('[data-artist]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const artistKey = this.dataset.artist;
+                showArtist(artistKey);
+                history.pushState({ artist: artistKey }, '', '/' + artistKey);
+            });
+        });
+
+        // Handle back button
+        backLink.addEventListener('click', function() {
+            hideArtist();
+            history.pushState({}, '', '/');
+        });
+
+        // Handle browser back button
+        window.addEventListener('popstate', function(e) {
+            if (e.state && e.state.artist) {
+                showArtist(e.state.artist);
+            } else {
+                hideArtist();
+            }
+        });
+
+        // Check if redirected from 404 (for direct URL access on GitHub Pages)
+        const redirectPath = sessionStorage.getItem('redirectPath');
+        if (redirectPath) {
+            sessionStorage.removeItem('redirectPath');
+            const artistKey = redirectPath.replace('/', '');
+            if (artists[artistKey]) {
+                showArtist(artistKey);
+                history.replaceState({ artist: artistKey }, '', '/' + artistKey);
+            }
+        } else {
+            // Check if URL has artist path on load (e.g., /kieryn)
+            const path = window.location.pathname.replace('/', '');
+            if (path && artists[path]) {
+                showArtist(path);
+                history.replaceState({ artist: path }, '', '/' + path);
+            }
+        }
+
+        // Draggable scattered images functionality
+        if (window.innerWidth > 480) {
+            const scatteredImgs = document.querySelectorAll('.scattered-img');
+            let draggedEl = null;
+            let startX, startY, initialX, initialY;
+            let isDragging = false;
+            let mouseDownTime = 0;
+            let highestZ = 5;
+
+            scatteredImgs.forEach(img => {
+                img.addEventListener('mousedown', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    draggedEl = this;
+                    isDragging = false;
+                    mouseDownTime = Date.now();
+                    
+                    // Get current position
+                    const rect = this.getBoundingClientRect();
+                    initialX = rect.left;
+                    initialY = rect.top;
+                    startX = e.clientX;
+                    startY = e.clientY;
+                    
+                    // Bring to front of other images (but still under text)
+                    highestZ++;
+                    if (highestZ > 9) highestZ = 1;
+                    this.style.zIndex = highestZ;
+                    
+                    // Set position to fixed pixels instead of CSS percentages
+                    this.style.left = initialX + 'px';
+                    this.style.top = initialY + 'px';
+                    this.style.right = 'auto';
+                    this.style.bottom = 'auto';
+                    
+                    this.classList.add('dragging');
+                });
+
+                // Block ALL click events - we handle navigation in mouseup
+                img.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    e.stopImmediatePropagation();
+                    return false;
+                }, true);
+            });
+
+            document.addEventListener('mousemove', function(e) {
+                if (!draggedEl) return;
+                
+                const dx = e.clientX - startX;
+                const dy = e.clientY - startY;
+                
+                // Any movement counts as dragging
+                if (Math.abs(dx) > 2 || Math.abs(dy) > 2) {
+                    isDragging = true;
+                }
+                
+                draggedEl.style.left = (initialX + dx) + 'px';
+                draggedEl.style.top = (initialY + dy) + 'px';
+            });
+
+            document.addEventListener('mouseup', function(e) {
+                if (!draggedEl) return;
+                
+                const clickDuration = Date.now() - mouseDownTime;
+                const artist = draggedEl.dataset.artist;
+                
+                draggedEl.classList.remove('dragging');
+                
+                // Only navigate if: not dragging AND click was quick (under 200ms)
+                if (!isDragging && clickDuration < 200 && artist) {
+                    // Use setTimeout to navigate after event completes
+                    setTimeout(function() {
+                        window.location.href = '/' + artist + '/';
+                    }, 10);
+                }
+                
+                draggedEl = null;
+                isDragging = false;
+            });
+        }
+    </script>
 </body>
 </html>
