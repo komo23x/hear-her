@@ -288,23 +288,7 @@
 
         @media (max-width: 480px) {
             .site-footer {
-                font-size: 0.7rem;
-                bottom: 15px;
-                left: 50%;
-                transform: translateX(-50%);
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                gap: 2px;
-            }
-
-            .site-footer .desktop-text {
                 display: none;
-            }
-
-            .site-footer .mobile-text {
-                display: block;
             }
         }
 
@@ -331,6 +315,21 @@
             }
         }
 
+        /* Main content wrapper for blur effect */
+        .main-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            filter: blur(20px);
+            transition: filter 0.8s ease-out;
+        }
+
+        .main-content.unblurred {
+            filter: blur(0);
+        }
+
         /* Tap to enter overlay */
         .tap-overlay {
             position: fixed;
@@ -340,15 +339,25 @@
             bottom: 0;
             width: 100%;
             height: 100%;
-            background-color: #789ebf;
+            background-color: transparent;
             z-index: 9999;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 20px;
+            gap: 0;
             cursor: pointer;
-            transition: opacity 0.5s ease;
+            transition: opacity 0.5s ease, filter 0.6s ease-out;
+        }
+
+        .tap-overlay.blur-in {
+            filter: blur(20px);
+            opacity: 0;
+        }
+
+        .tap-overlay.blur-in.revealed {
+            filter: blur(0);
+            opacity: 1;
         }
 
         .tap-overlay.hidden {
@@ -356,17 +365,10 @@
             pointer-events: none;
         }
 
-        .tap-square {
-            width: 40px;
-            height: 40px;
-            animation: colorCycle 2s ease-in-out infinite;
-        }
-
-        @keyframes colorCycle {
-            0% { background-color: #4A90D9; }
-            33% { background-color: #9B59B6; }
-            66% { background-color: #E74C3C; }
-            100% { background-color: #4A90D9; }
+        .tap-icon {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
         }
 
         .tap-text {
@@ -374,6 +376,7 @@
             font-size: 0.9rem;
             letter-spacing: 0.1em;
             text-transform: lowercase;
+            margin-top: -10px;
         }
 
         /* Artist overlay */
@@ -478,10 +481,11 @@
 <body>
     <!-- Tap to enter overlay -->
     <div class="tap-overlay" id="tapOverlay">
-        <div class="tap-square"></div>
+        <img class="tap-icon" id="tapIcon" src="loading%20icons/image1.png" alt="loading">
         <span class="tap-text">tap to enter</span>
     </div>
 
+    <div class="main-content" id="mainContent">
     <!-- Video background (mobile only) -->
     <video class="video-background" id="videoBackground" autoplay muted loop playsinline webkit-playsinline>
     </video>
@@ -529,7 +533,7 @@
         <a href="/tidy/">tidy totes</a>
         <a href="/komal/">komal yadav</a>
         <a href="/amrit/">amrit singh</a>
-        <a href="/highbrow/">highbrow hedonist</a>
+        <a href="/highbrow-hedonist/">highbrow hedonist</a>
         <a href="/kieryn/">kieryn alexander</a>
         <a href="/soleilroz/">soleilroz</a>
         <a href="/isabelle/">isabelle zhao</a>
@@ -553,13 +557,35 @@
     <script>
         const video = document.getElementById('videoBackground');
         const tapOverlay = document.getElementById('tapOverlay');
+        const tapIcon = document.getElementById('tapIcon');
+        
+        // Cycle through loading icons
+        const loadingIcons = [
+            'loading%20icons/image1.png',
+            'loading%20icons/image2.png',
+            'loading%20icons/image3.png',
+            'loading%20icons/image4.png',
+            'loading%20icons/image5.png',
+            'loading%20icons/image6.png',
+            'loading%20icons/image7.png',
+            'loading%20icons/image8.png',
+            'loading%20icons/image9.png'
+        ];
+        let currentIconIndex = 0;
+        
+        setInterval(() => {
+            currentIconIndex = (currentIconIndex + 1) % loadingIcons.length;
+            tapIcon.src = loadingIcons[currentIconIndex];
+        }, 350);
         
         // Use mobile video for all screen sizes
         video.src = 'background-video-mobile.mp4';
         
         function hideOverlay() {
+            // Unblur the main content
+            document.getElementById('mainContent').classList.add('unblurred');
             tapOverlay.classList.add('hidden');
-            setTimeout(() => tapOverlay.remove(), 500);
+            setTimeout(() => tapOverlay.remove(), 800);
             // Remember that user has entered
             sessionStorage.setItem('hasEntered', 'true');
         }
@@ -571,17 +597,14 @@
         
         // Check if user has already entered (coming back from artist page)
         if (sessionStorage.getItem('hasEntered') === 'true') {
-            // Try to autoplay, if it fails show the overlay again
-            video.muted = true;
-            video.play().then(function() {
-                // Autoplay worked, remove overlay
-                tapOverlay.remove();
-            }).catch(function() {
-                // Autoplay failed (common on mobile back navigation)
-                // Show the tap overlay again
-                showOverlay();
-                sessionStorage.removeItem('hasEntered');
-            });
+            // Coming back from artist page - blur in the tap overlay
+            sessionStorage.removeItem('hasEntered');
+            tapOverlay.classList.add('blur-in');
+            tapOverlay.style.display = 'flex';
+            // Trigger the reveal animation after a tiny delay
+            setTimeout(function() {
+                tapOverlay.classList.add('revealed');
+            }, 50);
         } else {
             // Try to autoplay (works on desktop)
             video.play().then(function() {
@@ -819,6 +842,7 @@
             });
         }
     </script>
+    </div><!-- end main-content -->
 
     <footer class="site-footer"><span class="desktop-text">web design & code by <a href="https://komal-yadav.com/" target="_blank">komal yadav</a> © 2026 all rights reserved.</span><span class="mobile-text">web design by <a href="https://komal-yadav.com/" target="_blank">komal</a><br>© 2026 all rights reserved.</span></footer>
 </body>

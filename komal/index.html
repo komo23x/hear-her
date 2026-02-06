@@ -4,160 +4,237 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>komal yadav | hear her</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html, body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            overflow-x: hidden;
-        }
-
-        body {
-            font-family: Helvetica, Arial, sans-serif;
-            background-color: #789ebf;
-            color: white;
-            min-height: 100vh;
-        }
-
-        .back-link {
-            position: fixed;
-            top: 40px;
-            left: 40px;
-            color: white;
-            text-decoration: none;
-            font-size: 0.9rem;
-            letter-spacing: 0.05em;
-            text-transform: lowercase;
-            z-index: 100;
-        }
-
-        .back-link:hover {
-            text-decoration: underline;
-        }
-
-        .artist-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 120px 40px 80px 40px;
-        }
-
-        .artist-name {
-            font-size: 2.5rem;
-            font-weight: normal;
-            text-transform: lowercase;
-            margin-bottom: 20px;
-            letter-spacing: 0.02em;
-        }
-
-        .artist-bio {
-            font-size: 1rem;
-            line-height: 1.8;
-            margin-bottom: 40px;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .artist-links {
-            margin-top: 40px;
-        }
-
-        .artist-links a {
-            color: white;
-            text-decoration: underline;
-            font-size: 0.9rem;
-            margin-right: 20px;
-            text-transform: lowercase;
-        }
-
-        .artist-links a:hover {
-            opacity: 0.8;
-        }
-
-        .artist-image {
-            width: 100%;
-            max-width: 500px;
-            margin: 40px 0;
-        }
-
-        .artist-image img {
-            width: 100%;
-            height: auto;
-        }
-
-        @media (max-width: 480px) {
-            .back-link {
-                top: 20px;
-                left: 20px;
-            }
-
-            .artist-content {
-                padding: 100px 20px 60px 20px;
-            }
-
-            .artist-name {
-                font-size: 1.8rem;
-            }
-
-            .artist-bio {
-                font-size: 0.95rem;
-            }
-
-            .site-footer {
-                position: static;
-                padding: 40px 20px;
-                justify-content: center;
-                gap: 5px;
-            }
-        }
-
-        .site-footer {
-            position: fixed;
-            bottom: 25px;
-            left: 25px;
-            right: 25px;
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.75rem;
-            letter-spacing: 0.02em;
-            text-transform: lowercase;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .site-footer a {
-            color: inherit;
-            text-decoration: underline;
-        }
-
-        .site-footer a:hover {
-            opacity: 0.8;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <a href="/" class="back-link">← back</a>
 
-    <div class="artist-content">
-        <h1 class="artist-name">komal yadav</h1>
-        
-        <div class="artist-image">
-            <!-- <img src="komal-image.jpg" alt="komal yadav"> -->
+    <!-- Desktop Hero Section -->
+    <div class="desktop-hero">
+        <div class="hero-name">
+            komal yadav
+            <div class="hero-links">
+                <a href="https://www.tiktok.com/@komalyad.av" target="_blank">tiktok</a>
+                <a href="https://www.instagram.com/komalyad.av" target="_blank">instagram</a>
+                <a href="https://komal-yadav.com/" target="_blank">website</a>
+            </div>
         </div>
-
-        <p class="artist-bio">
-            Artist bio coming soon.
-        </p>
-
-        <div class="artist-links">
-            <!-- <a href="#">instagram</a> -->
-            <!-- <a href="#">website</a> -->
+        <div class="floating-img float-1" onclick="document.getElementById('gallery-row').scrollIntoView({behavior: 'smooth', block: 'center'})">
+            <div class="placeholder-img"></div>
+        </div>
+        <div class="floating-img float-2" onclick="document.getElementById('gallery-row').scrollIntoView({behavior: 'smooth', block: 'center'})">
+            <div class="placeholder-img"></div>
+        </div>
+        <div class="floating-img float-3" onclick="document.getElementById('artist-statement').scrollIntoView({behavior: 'smooth', block: 'center'})">
+            <div class="placeholder-img"></div>
+        </div>
+        <div class="floating-img float-4" onclick="document.getElementById('gallery-row').scrollIntoView({behavior: 'smooth', block: 'center'})">
+            <div class="placeholder-img"></div>
+        </div>
+        <div class="floating-img float-5" onclick="document.getElementById('gallery-row').scrollIntoView({behavior: 'smooth', block: 'center'})">
+            <div class="placeholder-img"></div>
         </div>
     </div>
+
+    <!-- Desktop Bio Section -->
+    <div class="desktop-bio-section">
+        <p class="bio-label">bio / komal yadav</p>
+        <p class="bio-large-text">
+            <span>komal yadav is a seattle-based creative technologist, software engineer, and model whose work lives at the intersection of code, culture, and the body. trained in software engineering at uc berkeley and shaped by years at microsoft, she brings her technical craft to deeply human questions — how we move, how we're seen, how we play. her practice transforms technologies of observation into invitations for expression, hand-coding every interaction.<br><br>all web design and code by hers truly.</span>
+        </p>
+    </div>
+
+    <!-- Desktop Staggered Gallery -->
+    <div class="desktop-staggered-gallery">
+        <div class="gallery-row" id="gallery-row">
+            <div class="gallery-item">
+                <div class="placeholder-img"></div>
+                <p class="gallery-caption"><span class="work-title">"playtime"</span><br>interactive installation: mediapipe body tracking, projection, generative audio, curtain</p>
+            </div>
+            <div class="gallery-item">
+                <div class="placeholder-img"></div>
+            </div>
+            <div class="gallery-item">
+                <div class="placeholder-img"></div>
+            </div>
+            <div class="gallery-item">
+                <div class="placeholder-img"></div>
+            </div>
+        </div>
+
+        <div class="artist-statement-row" id="artist-statement">
+            <div class="artist-statement-image">
+                <div class="placeholder-img"></div>
+                <p class="staggered-caption">komal yadav</p>
+                <div class="statement-links">
+                    <a href="https://www.tiktok.com/@komalyad.av" target="_blank">tiktok</a>
+                    <a href="https://www.instagram.com/komalyad.av" target="_blank">instagram</a>
+                    <a href="https://komal-yadav.com/" target="_blank">website</a>
+                </div>
+            </div>
+            <div class="artist-statement-text">
+                <p><em>playtime</em> began as a letter to my younger self—the 12-year-old quiet girl who had so much to say but never raised her hand. i wanted to build her a stage.</p>
+                <p>but somewhere in the making, the piece outgrew me. in 2026, children are growing up in fear: gaza, congo, sudan, ice raids at school doors. a generation whose playground has been replaced by violence. <em>playtime</em> became about reclaiming what childhood means—the part of us that sees curtains as castles, that makes messes without apology, that plays before it performs.</p>
+                <p>technology is political. it surveils, it targets, it silences. but it can also be nurturing. this piece takes the same tools built to surveil bodies and turns them into an invitation: wave your hands, make color, hear sound respond. there are no rules, no winning. just play.</p>
+                <p>to make art from what's been weaponized against us is an act of quiet resistance. <em>playtime</em> is my offering—a space where logic softens into intuition, and for a few minutes, we can set aside our differences and just be kids again.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Desktop Content (below hero) -->
+    <div class="desktop-content">
+        <div class="artist-header">
+            <div class="artist-header-text">
+                <h2 class="artist-name">komal yadav</h2>
+                
+                <div class="artist-links">
+                    <a href="https://www.tiktok.com/@komalyad.av" target="_blank">tiktok</a>
+                    <a href="https://www.instagram.com/komalyad.av" target="_blank">instagram</a>
+                    <a href="https://komal-yadav.com/" target="_blank">website</a>
+                </div>
+
+                <p class="artist-bio">
+                    komal yadav is a seattle-based creative technologist, software engineer, and model whose work lives at the intersection of code, culture, and the body. trained in software engineering at uc berkeley and shaped by years at microsoft, she brings her technical craft to deeply human questions — how we move, how we're seen, how we play. her practice transforms technologies of observation into invitations for expression, hand-coding every interaction. all web design and code by hers truly.</p>
+            </div>
+
+            <div class="artist-image">
+                <div class="placeholder-img"></div>
+            </div>
+        </div>
+
+        <div class="work-gallery">
+            <div class="work-item">
+                <div class="placeholder-img"></div>
+                <p class="work-description"><span class="work-title">"work one"</span> medium placeholder, dimensions $price</p>
+            </div>
+
+            <div class="work-item">
+                <div class="placeholder-img"></div>
+                <p class="work-description"><span class="work-title">"work two"</span> medium placeholder, dimensions $price</p>
+            </div>
+
+            <div class="work-item">
+                <div class="placeholder-img"></div>
+                <p class="work-description"><span class="work-title">"work three"</span> medium placeholder, dimensions $price</p>
+            </div>
+
+            <div class="work-item">
+                <div class="placeholder-img"></div>
+                <p class="work-description"><span class="work-title">"work four"</span> medium placeholder, dimensions $price</p>
+            </div>
+        </div>
+
+        <div class="artist-statements">
+            <p class="artist-statement">
+                <em>playtime</em> began as a letter to my younger self—the 12-year-old quiet girl who had so much to say but never raised her hand. i wanted to build her a stage.
+            </p>
+            <p class="artist-statement">
+                but somewhere in the making, the piece outgrew me. in 2026, children are growing up in fear: gaza, congo, sudan, ice raids at school doors. a generation whose playground has been replaced by violence. <em>playtime</em> became about reclaiming what childhood means—the part of us that sees curtains as castles, that makes messes without apology, that plays before it performs.
+            </p>
+            <p class="artist-statement">
+                technology is political. it surveils, it targets, it silences. but it can also be nurturing. this piece takes the same tools built to surveil bodies and turns them into an invitation: wave your hands, make color, hear sound respond. there are no rules, no winning. just play.
+            </p>
+            <p class="artist-statement">
+                to make art from what's been weaponized against us is an act of quiet resistance. <em>playtime</em> is my offering—a space where logic softens into intuition, and for a few minutes, we can set aside our differences and just be kids again.
+            </p>
+        </div>
+    </div>
+
+    <!-- Mobile Content (original layout) -->
+    <div class="mobile-content">
+        <div class="artist-content">
+            <div class="artist-header">
+                <div class="artist-header-text">
+                    <h1 class="artist-name">komal yadav</h1>
+                    
+                    <div class="artist-links">
+                        <a href="https://www.tiktok.com/@komalyad.av" target="_blank">tiktok</a>
+                        <a href="https://www.instagram.com/komalyad.av" target="_blank">instagram</a>
+                        <a href="https://komal-yadav.com/" target="_blank">website</a>
+                    </div>
+
+                    <div class="artist-image">
+                        <div class="placeholder-img"></div>
+                    </div>
+
+                    <p class="artist-bio">
+                        komal yadav is a seattle-based creative technologist, software engineer, and model whose work lives at the intersection of code, culture, and the body. trained in software engineering at uc berkeley and shaped by years at microsoft, she brings her technical craft to deeply human questions — how we move, how we're seen, how we play. her practice transforms technologies of observation into invitations for expression, hand-coding every interaction. all web design and code by hers truly.</p>
+                </div>
+            </div>
+
+            <div class="work-gallery">
+                <div class="work-item">
+                    <div class="placeholder-img"></div>
+                    <p class="work-description"><span class="work-title">"work one"</span> medium placeholder, dimensions ($price)</p>
+                </div>
+
+                <div class="work-item">
+                    <div class="placeholder-img"></div>
+                    <p class="work-description"><span class="work-title">"work two"</span> medium placeholder, dimensions ($price)</p>
+                </div>
+
+                <div class="work-item">
+                    <div class="placeholder-img"></div>
+                    <p class="work-description"><span class="work-title">"work three"</span> medium placeholder, dimensions ($price)</p>
+                </div>
+
+                <div class="work-item">
+                    <div class="placeholder-img"></div>
+                    <p class="work-description"><span class="work-title">"work four"</span> medium placeholder, dimensions ($price)</p>
+                </div>
+            </div>
+
+            <div class="artist-statements">
+                <p class="artist-statement">
+                    <em>playtime</em> began as a letter to my younger self—the 12-year-old quiet girl who had so much to say but never raised her hand. i wanted to build her a stage.
+                </p>
+                <p class="artist-statement">
+                    but somewhere in the making, the piece outgrew me. in 2026, children are growing up in fear: gaza, congo, sudan, ice raids at school doors. a generation whose playground has been replaced by violence. <em>playtime</em> became about reclaiming what childhood means—the part of us that sees curtains as castles, that makes messes without apology, that plays before it performs.
+                </p>
+                <p class="artist-statement">
+                    technology is political. it surveils, it targets, it silences. but it can also be nurturing. this piece takes the same tools built to surveil bodies and turns them into an invitation: wave your hands, make color, hear sound respond. there are no rules, no winning. just play.
+                </p>
+                <p class="artist-statement">
+                    to make art from what's been weaponized against us is an act of quiet resistance. <em>playtime</em> is my offering—a space where logic softens into intuition, and for a few minutes, we can set aside our differences and just be kids again.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Parallax scroll effect for desktop hero
+        if (window.innerWidth > 480) {
+            const heroName = document.querySelector('.hero-name');
+            const floatingImgs = document.querySelectorAll('.floating-img:not(.float-3):not(.float-4)');
+            const heroSection = document.querySelector('.desktop-hero');
+            
+            window.addEventListener('scroll', function() {
+                const scrollY = window.scrollY;
+                const heroHeight = window.innerHeight;
+                
+                // Fade out the name as we scroll
+                if (scrollY < heroHeight) {
+                    const opacity = 1 - (scrollY / (heroHeight * 0.6));
+                    heroName.style.opacity = Math.max(0, opacity);
+                    
+                    // Move images up faster than scroll (parallax) - except float-3 and float-4
+                    floatingImgs.forEach((img, index) => {
+                        const speed = 0.3 + (index * 0.05);
+                        img.style.transform = `translateY(${scrollY * speed}px)`;
+                    });
+                } else {
+                    heroName.style.opacity = 0;
+                }
+                
+                // Hide fixed name after scrolling past hero
+                if (scrollY > heroHeight) {
+                    heroName.style.display = 'none';
+                } else {
+                    heroName.style.display = 'block';
+                }
+            });
+        }
+    </script>
 
     <footer class="site-footer"><span>web design & code by <a href="https://komal-yadav.com/" target="_blank">komal yadav</a></span><span>© 2026 all rights reserved.</span></footer>
 </body>
