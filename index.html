@@ -195,9 +195,10 @@
             color: #2a4157;
         }
 
-        .bottom-right {
-            bottom: 25px;
-            right: 25px;
+        .top-center {
+            top: 25px;
+            left: 50%;
+            transform: translateX(-50%);
             color: #2a4157;
         }
 
@@ -218,15 +219,14 @@
         /* Right side event info */
         .event-info {
             position: fixed;
-            left: 25px;
+            right: 25px;
             bottom: 25px;
-            text-align: left;
+            text-align: right;
             color: #2a4157;
-            font-size: 0.85rem;
+            font-size: 0.95rem;
             line-height: 1.4;
             z-index: 10;
             padding: 10px 15px;
-            position: fixed;
             isolation: isolate;
         }
 
@@ -259,24 +259,27 @@
             color: white;
         }
 
-        /* Artist list - centered below logo */
+        /* Artist list - left side */
         .artist-list {
             position: fixed;
-            top: calc(50% + 150px);
-            left: 50%;
-            transform: translateX(-50%);
+            bottom: 25px;
+            left: 25px;
             color: white;
-            font-size: 1.1rem;
-            line-height: 1.8;
+            font-size: 0.95rem;
+            line-height: 1.2;
             text-transform: lowercase;
-            text-align: center;
+            text-align: left;
             z-index: 10;
+        }
+
+        .desktop-break {
+            display: none;
         }
 
         .artist-list a {
             color: white;
             text-decoration: none;
-            display: inline-block;
+            display: block;
             position: relative;
             padding: 2px 10px;
             transition: color 0.3s ease;
@@ -347,7 +350,6 @@
             .event-info {
                 top: auto;
                 bottom: 160px;
-                left: auto;
                 right: 25px;
                 transform: none;
                 text-align: right;
@@ -397,6 +399,10 @@
             .artist-list a {
                 display: block;
                 padding: 0;
+            }
+
+            .artist-list a::before {
+                display: none;
             }
 
             .artist-list .desktop-break {
@@ -479,6 +485,23 @@
             }
             .main-content {
                 filter: blur(0) !important;
+            }
+
+            /* White corner text on desktop */
+            .corner-text {
+                color: white;
+            }
+
+            /* White event info on desktop */
+            .event-info,
+            .event-info a {
+                color: white;
+            }
+
+            /* White footer on desktop */
+            .site-footer,
+            .site-footer a {
+                color: white;
             }
         }
 
@@ -622,7 +645,8 @@
 
     <!-- Top corners -->
     <div class="corner-text top-left">collective</div>
-    <div class="corner-text top-right">art</div>
+    <div class="corner-text top-center">art</div>
+    <div class="corner-text top-right">exhibition</div>
 
     <!-- Center logo -->
     <div class="center-logo">
@@ -661,8 +685,7 @@
         </div>
     </div>
 
-    <!-- Bottom right -->
-    <div class="corner-text bottom-right">exhibition</div>
+
 
     <script>
         const video = document.getElementById('videoBackground');
