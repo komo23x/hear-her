@@ -347,13 +347,60 @@
             .event-info {
                 top: auto;
                 bottom: 160px;
-                transform: none;
+                left: auto;
                 right: 25px;
+                transform: none;
+                text-align: right;
                 font-size: 0.85rem;
+                padding: 0;
+            }
+
+            .event-info,
+            .event-info a {
+                font-size: 0.85rem;
+                color: white;
+            }
+
+            .event-info::before {
+                display: block;
+                opacity: 1;
+                width: 140px;
+                height: 140px;
+                background: radial-gradient(circle, rgba(180, 120, 140, 0.5) 0%, rgba(180, 120, 140, 0.2) 50%, rgba(180, 120, 140, 0) 70%);
             }
 
             .artist-list {
+                top: auto;
+                bottom: 25px;
+                left: 25px;
+                right: auto;
+                transform: none;
+                text-align: left;
                 font-size: 0.85rem;
+                line-height: 1.4;
+                isolation: isolate;
+            }
+
+            .artist-list::before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 250px;
+                height: 250px;
+                background: radial-gradient(circle, rgba(150, 100, 180, 0.5) 0%, rgba(150, 100, 180, 0.2) 50%, rgba(150, 100, 180, 0) 70%);
+                border-radius: 50%;
+                z-index: -1;
+            }
+
+            .artist-list a {
+                display: block;
+                padding: 0;
+            }
+
+            .artist-list .desktop-break {
+                display: none;
             }
 
             .corner-text {
@@ -372,7 +419,6 @@
             left: 0;
             width: 100%;
             height: 100%;
-            filter: blur(20px);
             transition: filter 0.8s ease-out;
         }
 
@@ -389,7 +435,7 @@
             bottom: 0;
             width: 100%;
             height: 100%;
-            background-color: transparent;
+            background-color: #789ebf;
             z-index: 9999;
             display: flex;
             flex-direction: column;
@@ -397,16 +443,14 @@
             align-items: center;
             gap: 0;
             cursor: pointer;
-            transition: opacity 0.5s ease, filter 0.6s ease-out;
+            transition: opacity 0.8s ease-out;
         }
 
         .tap-overlay.blur-in {
-            filter: blur(20px);
             opacity: 0;
         }
 
         .tap-overlay.blur-in.revealed {
-            filter: blur(0);
             opacity: 1;
         }
 
@@ -599,7 +643,7 @@
         <a href="/komal/">komal yadav</a>
         <a href="/amrit/">amrit singh</a>
         <a href="/highbrow-hedonist/">highbrow hedonist</a>
-        <br>
+        <br class="desktop-break">
         <a href="/kieryn/">kieryn alexander</a>
         <a href="/soleilroz/">soleilroz</a>
         <a href="/isabelle/">isabelle zhao</a>
