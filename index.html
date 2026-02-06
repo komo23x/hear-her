@@ -147,6 +147,12 @@
             width: 145px;
         }
 
+        .scatter-7 {
+            top: 20%;
+            left: 40%;
+            width: 155px;
+        }
+
         /* Hide scattered images on mobile */
         @media (max-width: 480px) {
             .desktop-scattered-images {
@@ -171,7 +177,7 @@
         /* Corner text styling */
         .corner-text {
             position: fixed;
-            font-size: 1.1rem;
+            font-size: 0.95rem;
             letter-spacing: 0.05em;
             text-transform: lowercase;
             z-index: 10;
@@ -212,47 +218,76 @@
         /* Right side event info */
         .event-info {
             position: fixed;
-            right: 25px;
-            top: 55%;
-            transform: translateY(-50%);
-            text-align: right;
-            color: white;
-            font-size: 1.1rem;
+            left: 25px;
+            bottom: 25px;
+            text-align: left;
+            color: #2a4157;
+            font-size: 0.85rem;
             line-height: 1.4;
             z-index: 10;
         }
 
         .event-info a {
-            color: white;
+            color: #2a4157;
             text-decoration: underline;
             transition: color 0.3s ease;
         }
 
         .event-info a:hover {
-            color: #2a4157;
+            color: white;
         }
 
-        /* Artist list - bottom left */
+        /* Artist list - centered below logo */
         .artist-list {
             position: fixed;
-            bottom: 25px;
-            left: 25px;
+            top: calc(50% + 150px);
+            left: 50%;
+            transform: translateX(-50%);
             color: white;
             font-size: 1.1rem;
-            line-height: 1.4;
+            line-height: 1.8;
             text-transform: lowercase;
+            text-align: justify;
+            max-width: 380px;
             z-index: 10;
+        }
+
+        .artist-list::after {
+            content: '';
+            display: inline-block;
+            width: 100%;
         }
 
         .artist-list a {
             color: white;
-            text-decoration: underline;
-            display: block;
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            padding: 2px 10px;
             transition: color 0.3s ease;
         }
 
+        .artist-list a::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 130%;
+            height: 180%;
+            background: radial-gradient(ellipse, rgba(220, 190, 80, 0.6) 0%, rgba(220, 190, 80, 0.25) 50%, rgba(220, 190, 80, 0) 75%);
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .artist-list a:hover::before {
+            opacity: 1;
+        }
+
         .artist-list a:hover {
-            color: #2a4157;
+            color: white;
         }
 
         .artist-list span {
@@ -377,6 +412,15 @@
             letter-spacing: 0.1em;
             text-transform: lowercase;
             margin-top: -10px;
+        }
+
+        @media (min-width: 481px) {
+            .tap-overlay {
+                display: none !important;
+            }
+            .main-content {
+                filter: blur(0) !important;
+            }
         }
 
         /* Artist overlay */
@@ -507,6 +551,12 @@
         <div class="scattered-img scatter-5" data-artist="kieryn">
             <img src="kieryn/work%204.jpg" alt="artwork" draggable="false">
         </div>
+        <div class="scattered-img scatter-6" data-artist="tidy">
+            <img src="tidy/artist_image.jpg" alt="tidy totes" draggable="false">
+        </div>
+        <div class="scattered-img scatter-7" data-artist="komal">
+            <img src="komal/artist_image.JPG" alt="komal yadav" draggable="false">
+        </div>
     </div>
     
 
@@ -595,41 +645,40 @@
             tapOverlay.style.display = 'flex';
         }
         
-        // Check if user has already entered (coming back from artist page)
-        if (sessionStorage.getItem('hasEntered') === 'true') {
-            // Coming back from artist page - blur in the tap overlay
-            sessionStorage.removeItem('hasEntered');
-            tapOverlay.classList.add('blur-in');
-            tapOverlay.style.display = 'flex';
-            // Trigger the reveal animation after a tiny delay
-            setTimeout(function() {
-                tapOverlay.classList.add('revealed');
-            }, 50);
+        // On desktop, skip overlay entirely and go straight to content
+        if (window.innerWidth > 480) {
+            hideOverlay();
+            video.play().catch(function() {});
         } else {
-            // Try to autoplay (works on desktop)
-            video.play().then(function() {
-                hideOverlay();
-            }).catch(function() {
-                // Autoplay blocked - wait for tap/click
+            // Check if user has already entered (coming back from artist page)
+            if (sessionStorage.getItem('hasEntered') === 'true') {
+                // Coming back from artist page - blur in the tap overlay
+                sessionStorage.removeItem('hasEntered');
+                tapOverlay.classList.add('blur-in');
+                tapOverlay.style.display = 'flex';
+                // Trigger the reveal animation after a tiny delay
+                setTimeout(function() {
+                    tapOverlay.classList.add('revealed');
+                }, 50);
+            } else {
+                // Autoplay blocked on mobile - wait for tap/click
+            }
+            
+            // Handle tap/click on overlay (mobile only)
+            tapOverlay.addEventListener('click', function(e) {
+                e.preventDefault();
+                video.play().then(hideOverlay).catch(function() {
+                    hideOverlay();
+                });
             });
+            
+            tapOverlay.addEventListener('touchstart', function(e) {
+                e.preventDefault();
+                video.play().then(hideOverlay).catch(function() {
+                    hideOverlay();
+                });
+            }, { passive: false });
         }
-        
-        // Handle tap/click on overlay (works for both mobile and desktop)
-        tapOverlay.addEventListener('click', function(e) {
-            e.preventDefault();
-            video.play().then(hideOverlay).catch(function() {
-                // If video still won't play, hide overlay anyway
-                hideOverlay();
-            });
-        });
-        
-        tapOverlay.addEventListener('touchstart', function(e) {
-            e.preventDefault();
-            video.play().then(hideOverlay).catch(function() {
-                // If video still won't play, hide overlay anyway
-                hideOverlay();
-            });
-        }, { passive: false });
 
         // Graceful video loop - restart slightly before end to avoid flash
         video.addEventListener('timeupdate', function() {

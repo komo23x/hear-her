@@ -408,11 +408,50 @@ body {
         position: relative;
     }
 
+    .gallery-section-title {
+        text-align: center;
+        font-size: 1.2rem;
+        font-weight: normal;
+        text-transform: lowercase;
+        color: white;
+        margin-bottom: 30px;
+        letter-spacing: 0.05em;
+    }
+
+    .gallery-section-description {
+        text-align: justify;
+        font-size: 0.9rem;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.85);
+        max-width: 100%;
+        margin: 0 auto 40px auto;
+        text-transform: lowercase;
+    }
+
+    .gallery-section-description:last-of-type {
+        margin-bottom: 40px;
+        max-width: calc(2 * (100% - 60px) / 3 + 30px);
+    }
+
     .gallery-row {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+        margin-bottom: 120px;
+    }
+
+    .gallery-row.gallery-row-3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .gallery-row.gallery-row-2 {
+        display: flex;
+        justify-content: center;
         gap: 30px;
         margin-bottom: 300px;
+    }
+
+    .gallery-row.gallery-row-2 .gallery-item {
+        width: calc((100% - 60px) / 3);
     }
 
     .gallery-item {
@@ -446,9 +485,9 @@ body {
     .artist-statement-row {
         display: flex;
         gap: 80px;
-        align-items: flex-start;
+        align-items: stretch;
         margin: 0 auto;
-        padding-bottom: 100px;
+        padding-bottom: 20px;
         max-width: 1200px;
         position: relative;
         justify-content: center;
@@ -497,13 +536,18 @@ body {
         text-align: justify;
         max-width: 650px;
         position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-self: flex-start;
+        margin-top: -10px;
     }
 
     .artist-statement-text p {
-        font-size: 1.15rem;
-        line-height: 1.6;
+        font-size: 1.175rem;
+        line-height: 1.55;
         color: rgba(255, 255, 255, 0.85);
-        margin-bottom: 25px;
+        margin-bottom: 12px;
     }
 }
 
