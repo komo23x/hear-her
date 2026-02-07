@@ -14,26 +14,19 @@
         <div class="hero-name">
             isabelle zhao
             <div class="hero-links">
-                <a href="#">tiktok</a>
-                <a href="#">instagram</a>
-                <a href="#">website</a>
+                <a href="https://www.instagram.com/itsisabellezhao/" target="_blank">instagram</a>
+                <a href="https://isabellezhao.com/" target="_blank">website</a>
             </div>
         </div>
         
-        <div class="floating-img float-1">
-            <div class="placeholder-img"></div>
+        <div class="floating-img float-1" onclick="document.getElementById('gallery-row').scrollIntoView({behavior: 'smooth', block: 'center'})">
+            <img src="work%201.jpg" alt="isabelle zhao work">
         </div>
-        <div class="floating-img float-2">
-            <div class="placeholder-img"></div>
+        <div class="floating-img float-2" onclick="document.getElementById('gallery-row').scrollIntoView({behavior: 'smooth', block: 'center'})">
+            <img src="work%202.jpg" alt="isabelle zhao work">
         </div>
-        <div class="floating-img float-3">
-            <div class="placeholder-img"></div>
-        </div>
-        <div class="floating-img float-4">
-            <div class="placeholder-img"></div>
-        </div>
-        <div class="floating-img float-5">
-            <div class="placeholder-img"></div>
+        <div class="floating-img float-3" onclick="document.querySelector('.artist-statement-row').scrollIntoView({behavior: 'smooth', block: 'center'})">
+            <img src="artist_image.jpg" alt="isabelle zhao">
         </div>
     </section>
 
@@ -46,86 +39,79 @@
 
     <!-- Desktop Staggered Gallery -->
     <section class="desktop-staggered-gallery">
-        <div class="gallery-row">
+        <div class="gallery-row" id="gallery-row">
             <div class="gallery-item">
-                <div class="placeholder-img"></div>
-                <p class="gallery-caption"><span class="work-title">lorem ipsum</span>, 2025</p>
+                <img src="work%201.jpg" alt="isabelle zhao work">
+                <p class="gallery-caption"><span class="work-title">"velonika"</span><br>(not for sale)</p>
             </div>
             <div class="gallery-item">
-                <div class="placeholder-img"></div>
-                <p class="gallery-caption"><span class="work-title">dolor sit amet</span>, 2025</p>
-            </div>
-            <div class="gallery-item">
-                <div class="placeholder-img"></div>
-                <p class="gallery-caption"><span class="work-title">consectetur</span>, 2025</p>
-            </div>
-            <div class="gallery-item">
-                <div class="placeholder-img"></div>
-                <p class="gallery-caption"><span class="work-title">adipiscing elit</span>, 2025</p>
+                <img src="work%202.jpg" alt="isabelle zhao work">
+                <p class="gallery-caption"><span class="work-title">"aamina"</span><br>(not for sale)</p>
             </div>
         </div>
 
         <!-- Artist Statement Row -->
         <div class="artist-statement-row">
             <div class="artist-statement-image">
-                <div class="placeholder-img"></div>
+                <img src="artist_image.jpg" alt="isabelle zhao">
                 <p class="staggered-caption">isabelle zhao</p>
                 <div class="statement-links">
-                    <a href="#">tiktok</a>
-                    <a href="#">instagram</a>
-                    <a href="#">website</a>
+                    <a href="https://www.instagram.com/itsisabellezhao/" target="_blank">instagram</a>
+                    <a href="https://isabellezhao.com/" target="_blank">website</a>
                 </div>
             </div>
             <div class="artist-statement-text">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                <p>in a media landscape saturated with reductive depictions of the female body, i wanted to create a visual space where women could simply be. the nudity in these images is unremarkable—human and routine.</p>
+                <p>each image was made in collaboration with the subject, allowing her to decide how she wanted to be photographed. the women in this series are not performing for the viewer—they are simply existing on their own terms. this shift in directorship is central to the portraits: it resists our voyeuristic impulses and instead invites a more ethical, consensual gaze.</p>
+                <p>shortlisted for <a href="https://www.vogue.com/article/women-by-women-the-shortlist" target="_blank" style="color: white;">photovogue's women by women award</a></p>
             </div>
         </div>
     </section>
 
     <!-- Mobile Content -->
-    <div class="artist-content mobile-content">
-        <h1 class="artist-name">isabelle zhao</h1>
-        <p class="artist-bio">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+    <div class="mobile-content">
+        <div class="artist-content">
+            <div class="artist-header">
+                <div class="artist-header-text">
+                    <h1 class="artist-name">isabelle zhao</h1>
+                    
+                    <div class="artist-links">
+                        <a href="https://www.instagram.com/itsisabellezhao/" target="_blank">instagram</a>
+                        <a href="https://isabellezhao.com/" target="_blank">website</a>
+                    </div>
 
-        <div class="artist-links">
-            <a href="#">tiktok</a>
-            <a href="#">instagram</a>
-            <a href="#">website</a>
-        </div>
+                    <div class="artist-image">
+                        <img src="artist_image.jpg" alt="isabelle zhao">
+                    </div>
 
-        <div class="artist-image">
-            <div class="placeholder-img"></div>
-        </div>
-
-        <div class="work-gallery">
-            <div class="work-item">
-                <div class="placeholder-img"></div>
-                <p class="work-description"><span class="work-title">lorem ipsum</span>, 2025</p>
+                    <p class="artist-bio">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                </div>
             </div>
-            <div class="work-item">
-                <div class="placeholder-img"></div>
-                <p class="work-description"><span class="work-title">dolor sit amet</span>, 2025</p>
-            </div>
-            <div class="work-item">
-                <div class="placeholder-img"></div>
-                <p class="work-description"><span class="work-title">consectetur</span>, 2025</p>
-            </div>
-        </div>
 
-        <div class="artist-statement">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-        <div class="artist-statement">
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-        </div>
+            <div class="work-gallery">
+                <div class="work-item">
+                    <img src="work%201.jpg" alt="isabelle zhao work">
+                    <p class="work-description"><span class="work-title">"velonika"</span><br>(not for sale)</p>
+                </div>
+                <div class="work-item">
+                    <img src="work%202.jpg" alt="isabelle zhao work">
+                    <p class="work-description"><span class="work-title">"aamina"</span><br>(not for sale)</p>
+                </div>
+            </div>
 
-        <footer class="site-footer">
-            <span>hear her — a <a href="https://havn.art">havn</a> art installation</span>
-            <span>february 2026</span>
-        </footer>
+            <div class="artist-statements">
+                <p class="artist-statement">
+                    in a media landscape saturated with reductive depictions of the female body, i wanted to create a visual space where women could simply be. the nudity in these images is unremarkable—human and routine.
+                </p>
+                <p class="artist-statement">
+                    each image was made in collaboration with the subject, allowing her to decide how she wanted to be photographed. the women in this series are not performing for the viewer—they are simply existing on their own terms. this shift in directorship is central to the portraits: it resists our voyeuristic impulses and instead invites a more ethical, consensual gaze.
+                </p>
+                <p class="artist-statement">
+                    shortlisted for <a href="https://www.vogue.com/article/women-by-women-the-shortlist" target="_blank" style="color: white;">photovogue's women by women award</a>
+                </p>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -162,5 +148,7 @@
             });
         }
     </script>
+
+    <footer class="site-footer"><span>web design & code by <a href="https://komal-yadav.com/" target="_blank">komal yadav</a></span><span>© 2026 all rights reserved.</span></footer>
 </body>
 </html>

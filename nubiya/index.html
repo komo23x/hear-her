@@ -14,26 +14,21 @@
         <div class="hero-name">
             nubiya zavala
             <div class="hero-links">
-                <a href="#">tiktok</a>
-                <a href="#">instagram</a>
-                <a href="#">website</a>
+                <a href="https://www.instagram.com/otra.mami" target="_blank">instagram</a>
             </div>
         </div>
         
-        <div class="floating-img float-1">
-            <div class="placeholder-img"></div>
+        <div class="floating-img float-1" onclick="document.getElementById('gallery-row').scrollIntoView({behavior: 'smooth', block: 'center'})">
+            <img src="work%201.jpeg" alt="nubiya zavala work">
         </div>
-        <div class="floating-img float-2">
-            <div class="placeholder-img"></div>
+        <div class="floating-img float-2" onclick="document.getElementById('gallery-row').scrollIntoView({behavior: 'smooth', block: 'center'})">
+            <img src="work%202.JPG" alt="nubiya zavala work">
         </div>
-        <div class="floating-img float-3">
-            <div class="placeholder-img"></div>
+        <div class="floating-img float-3" onclick="document.querySelector('.artist-statement-row').scrollIntoView({behavior: 'smooth', block: 'center'})">
+            <img src="artist_image.jpeg" alt="nubiya zavala">
         </div>
-        <div class="floating-img float-4">
-            <div class="placeholder-img"></div>
-        </div>
-        <div class="floating-img float-5">
-            <div class="placeholder-img"></div>
+        <div class="floating-img float-4" onclick="document.getElementById('gallery-row').scrollIntoView({behavior: 'smooth', block: 'center'})">
+            <img src="work%203.JPG" alt="nubiya zavala work">
         </div>
     </section>
 
@@ -41,91 +36,98 @@
     <section class="desktop-bio-section">
         <p class="bio-label">bio / nubiya zavala</p>
         <p class="bio-large-text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+            nubiya zavala is a first-generation mexican american artist based in champaign, illinois. raised by an encouraging, artistic mother from yuriria, guanajuato, mexico, she developed a deep appreciation for family history and art at a young age. working primarily in photography, nubiya uses documentation as a way of preserving memory and connection.</p>
     </section>
 
     <!-- Desktop Staggered Gallery -->
     <section class="desktop-staggered-gallery">
-        <div class="gallery-row">
+        <div class="gallery-row" id="gallery-row">
             <div class="gallery-item">
-                <div class="placeholder-img"></div>
-                <p class="gallery-caption"><span class="work-title">lorem ipsum</span>, 2025</p>
+                <img src="work%201.jpeg" alt="nubiya zavala work">
+                <p class="gallery-caption"><span class="work-title">"i saw hydrangeas and bananas at the grocery store today and thought of you"</span><br>$125</p>
             </div>
             <div class="gallery-item">
-                <div class="placeholder-img"></div>
-                <p class="gallery-caption"><span class="work-title">dolor sit amet</span>, 2025</p>
+                <img src="work%202.JPG" alt="nubiya zavala work">
+                <p class="gallery-caption"><span class="work-title">"nyctinasty"</span><br>$125</p>
             </div>
             <div class="gallery-item">
-                <div class="placeholder-img"></div>
-                <p class="gallery-caption"><span class="work-title">consectetur</span>, 2025</p>
-            </div>
-            <div class="gallery-item">
-                <div class="placeholder-img"></div>
-                <p class="gallery-caption"><span class="work-title">adipiscing elit</span>, 2025</p>
+                <img src="work%203.JPG" alt="nubiya zavala work">
+                <p class="gallery-caption"><span class="work-title">"unspoken tradition"</span><br>$125</p>
             </div>
         </div>
 
         <!-- Artist Statement Row -->
         <div class="artist-statement-row">
             <div class="artist-statement-image">
-                <div class="placeholder-img"></div>
+                <img src="artist_image.jpeg" alt="nubiya zavala">
                 <p class="staggered-caption">nubiya zavala</p>
                 <div class="statement-links">
-                    <a href="#">tiktok</a>
-                    <a href="#">instagram</a>
-                    <a href="#">website</a>
+                    <a href="https://www.instagram.com/otra.mami" target="_blank">instagram</a>
                 </div>
             </div>
             <div class="artist-statement-text">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                <p>in hear her, my work gives voice to subtle yet powerful experiences, honoring the beauty within everyday stillness.</p>
+                <p>"i saw hydrangeas and bananas at the grocery store today and thought of you" captures my dear friend amethyst during a moment of transition, representing trust, love, and ultimately change.</p>
+                <p>"unspoken tradition" symbolizes growth and impermanence, it is a continuation of womanhood — as every woman in my family has had her own rose bush, and this was mine.</p>
+                <p>"nyctinasty" reflects stillness and emergence, capturing tulips in a moment of becoming, where growth unfolds softly at night.</p>
+                <p>my work often centers around cherishing the quiet, overlooked moments of everyday life. in a world that moves quickly and loudly it's nice to slow down and look. through intimate portraits and elements of nature, i explore how still moments can hold deep emotion, memory, and meaning.</p>
             </div>
         </div>
     </section>
 
     <!-- Mobile Content -->
-    <div class="artist-content mobile-content">
-        <h1 class="artist-name">nubiya zavala</h1>
-        <p class="artist-bio">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+    <div class="mobile-content">
+        <div class="artist-content">
+            <div class="artist-header">
+                <div class="artist-header-text">
+                    <h1 class="artist-name">nubiya zavala</h1>
+                    
+                    <div class="artist-links">
+                        <a href="https://www.instagram.com/otra.mami" target="_blank">instagram</a>
+                    </div>
 
-        <div class="artist-links">
-            <a href="#">tiktok</a>
-            <a href="#">instagram</a>
-            <a href="#">website</a>
-        </div>
+                    <div class="artist-image">
+                        <img src="artist_image.jpeg" alt="nubiya zavala">
+                    </div>
 
-        <div class="artist-image">
-            <div class="placeholder-img"></div>
-        </div>
-
-        <div class="work-gallery">
-            <div class="work-item">
-                <div class="placeholder-img"></div>
-                <p class="work-description"><span class="work-title">lorem ipsum</span>, 2025</p>
+                    <p class="artist-bio">
+                        nubiya zavala is a first-generation mexican american artist based in champaign, illinois. raised by an encouraging, artistic mother from yuriria, guanajuato, mexico, she developed a deep appreciation for family history and art at a young age. working primarily in photography, nubiya uses documentation as a way of preserving memory and connection.</p>
+                </div>
             </div>
-            <div class="work-item">
-                <div class="placeholder-img"></div>
-                <p class="work-description"><span class="work-title">dolor sit amet</span>, 2025</p>
-            </div>
-            <div class="work-item">
-                <div class="placeholder-img"></div>
-                <p class="work-description"><span class="work-title">consectetur</span>, 2025</p>
-            </div>
-        </div>
 
-        <div class="artist-statement">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-        <div class="artist-statement">
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-        </div>
+            <div class="work-gallery">
+                <div class="work-item">
+                    <img src="work%201.jpeg" alt="nubiya zavala work">
+                    <p class="work-description"><span class="work-title">"i saw hydrangeas and bananas at the grocery store today and thought of you"</span><br>$125</p>
+                </div>
+                <div class="work-item">
+                    <img src="work%202.JPG" alt="nubiya zavala work">
+                    <p class="work-description"><span class="work-title">"nyctinasty"</span><br>$125</p>
+                </div>
+                <div class="work-item">
+                    <img src="work%203.JPG" alt="nubiya zavala work">
+                    <p class="work-description"><span class="work-title">"unspoken tradition"</span><br>$125</p>
+                </div>
+            </div>
 
-        <footer class="site-footer">
-            <span>hear her — a <a href="https://havn.art">havn</a> art installation</span>
-            <span>february 2026</span>
-        </footer>
+            <div class="artist-statements">
+                <p class="artist-statement">
+                    in hear her, my work gives voice to subtle yet powerful experiences, honoring the beauty within everyday stillness.
+                </p>
+                <p class="artist-statement">
+                    "i saw hydrangeas and bananas at the grocery store today and thought of you" captures my dear friend amethyst during a moment of transition, representing trust, love, and ultimately change.
+                </p>
+                <p class="artist-statement">
+                    "unspoken tradition" symbolizes growth and impermanence, it is a continuation of womanhood — as every woman in my family has had her own rose bush, and this was mine.
+                </p>
+                <p class="artist-statement">
+                    "nyctinasty" reflects stillness and emergence, capturing tulips in a moment of becoming, where growth unfolds softly at night.
+                </p>
+                <p class="artist-statement">
+                    my work often centers around cherishing the quiet, overlooked moments of everyday life. in a world that moves quickly and loudly it's nice to slow down and look. through intimate portraits and elements of nature, i explore how still moments can hold deep emotion, memory, and meaning.
+                </p>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -162,5 +164,7 @@
             });
         }
     </script>
+
+    <footer class="site-footer"><span>web design & code by <a href="https://komal-yadav.com/" target="_blank">komal yadav</a></span><span>© 2026 all rights reserved.</span></footer>
 </body>
 </html>
