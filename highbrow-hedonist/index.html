@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>highbrow hedonist - hear her</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=6">
 </head>
 <body>
     <a href="/" class="back-link">← back</a>
@@ -14,26 +14,25 @@
         <div class="hero-name">
             highbrow hedonist
             <div class="hero-links">
-                <a href="#">tiktok</a>
-                <a href="#">instagram</a>
-                <a href="#">website</a>
+                <a href="https://www.instagram.com/highbrow_hedonist/" target="_blank">instagram</a>
+                <a href="https://highbrowhedonist.com/" target="_blank">website</a>
             </div>
         </div>
         
-        <div class="floating-img float-1">
-            <div class="placeholder-img"></div>
+        <div class="floating-img float-1" onclick="document.getElementById('gallery-row').scrollIntoView({behavior: 'smooth', block: 'center'})">
+            <img src="work%201.jpg" alt="highbrow hedonist work">
         </div>
-        <div class="floating-img float-2">
-            <div class="placeholder-img"></div>
+        <div class="floating-img float-2" onclick="document.getElementById('gallery-row').scrollIntoView({behavior: 'smooth', block: 'center'})">
+            <img src="work%202.jpg" alt="highbrow hedonist work">
         </div>
-        <div class="floating-img float-3">
-            <div class="placeholder-img"></div>
+        <div class="floating-img float-3" onclick="document.querySelector('.artist-statement-row').scrollIntoView({behavior: 'smooth', block: 'center'})">
+            <img src="artist_image.jpg" alt="highbrow hedonist">
         </div>
-        <div class="floating-img float-4">
-            <div class="placeholder-img"></div>
+        <div class="floating-img float-4" onclick="document.getElementById('gallery-row').scrollIntoView({behavior: 'smooth', block: 'center'})">
+            <img src="work%207.jpeg" alt="highbrow hedonist work">
         </div>
-        <div class="floating-img float-5">
-            <div class="placeholder-img"></div>
+        <div class="floating-img float-5" onclick="document.getElementById('gallery-row').scrollIntoView({behavior: 'smooth', block: 'center'})">
+            <img src="work%209.jpg" alt="highbrow hedonist work">
         </div>
     </section>
 
@@ -41,91 +40,118 @@
     <section class="desktop-bio-section">
         <p class="bio-label">bio / highbrow hedonist</p>
         <p class="bio-large-text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+            madeline mcdonald is a chef, event curator and lover of all things aesthetic. her background is in cooking and baking in restaurant settings and as an avid home cook. in seattle, she helped open the cafe bake shop, in lower queen anne, before moving to new york a few years ago. in new york, she set off to start her own business, first by hosting side walk dinner pop ups in front of her apartment in carroll gardens.</p>
     </section>
 
     <!-- Desktop Staggered Gallery -->
     <section class="desktop-staggered-gallery">
-        <div class="gallery-row">
+        <div class="gallery-row" id="gallery-row">
             <div class="gallery-item">
-                <div class="placeholder-img"></div>
-                <p class="gallery-caption"><span class="work-title">lorem ipsum</span>, 2025</p>
+                <img src="work%201.jpg" alt="highbrow hedonist work">
             </div>
             <div class="gallery-item">
-                <div class="placeholder-img"></div>
-                <p class="gallery-caption"><span class="work-title">dolor sit amet</span>, 2025</p>
+                <img src="work%202.jpg" alt="highbrow hedonist work">
             </div>
             <div class="gallery-item">
-                <div class="placeholder-img"></div>
-                <p class="gallery-caption"><span class="work-title">consectetur</span>, 2025</p>
+                <img src="work%203.jpg" alt="highbrow hedonist work">
             </div>
             <div class="gallery-item">
-                <div class="placeholder-img"></div>
-                <p class="gallery-caption"><span class="work-title">adipiscing elit</span>, 2025</p>
+                <img src="work%205.jpg" alt="highbrow hedonist work">
+            </div>
+            <div class="gallery-item">
+                <img src="work%206.jpeg" alt="highbrow hedonist work">
+            </div>
+            <div class="gallery-item">
+                <img src="work%207.jpeg" alt="highbrow hedonist work">
+            </div>
+            <div class="gallery-item">
+                <img src="work%208.jpg" alt="highbrow hedonist work">
+            </div>
+            <div class="gallery-item">
+                <img src="work%209.jpg" alt="highbrow hedonist work">
             </div>
         </div>
+    </section>
 
-        <!-- Artist Statement Row -->
+    <!-- Artist Statement Section -->
+    <section class="desktop-statement-section">
         <div class="artist-statement-row">
             <div class="artist-statement-image">
-                <div class="placeholder-img"></div>
+                <img src="artist_image.jpg" alt="highbrow hedonist">
                 <p class="staggered-caption">highbrow hedonist</p>
                 <div class="statement-links">
-                    <a href="#">tiktok</a>
-                    <a href="#">instagram</a>
-                    <a href="#">website</a>
+                    <a href="https://www.instagram.com/highbrow_hedonist/" target="_blank">instagram</a>
+                    <a href="https://highbrowhedonist.com/" target="_blank">website</a>
                 </div>
             </div>
             <div class="artist-statement-text">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                <p>a main feature of her work is bringing people together for a highly curated, yet relaxed environment to stimulate a natural setting for community connection and indulgence. she has been trying out many different avenues to discover what works best in terms of both creativity and function. she is excited to have returned home, seattle, for a hiatus and therefore to have the opportunity to connect with these incredible women.</p>
+                <p>for this exhibition, she is excited to try out something more abstract, not simply presenting food in the most obvious edible fashion, but helping to create an experience for the consumer to "play with their food". as always though, she hopes at the foundation of this experience is something that is both nourishing and delicious.</p>
+                <p>her model of work is to make most everything she serves, completely from scratch and by hand, giving her food and values a "rustic charm", the exact language one should use to describe it…this experience is allowing her to tap into her more artistic side, with inspiration from the other talented artists in this show. be on the lookout for other events and pop up's in both the seattle and new york areas.</p>
             </div>
         </div>
     </section>
 
     <!-- Mobile Content -->
-    <div class="artist-content mobile-content">
-        <h1 class="artist-name">highbrow hedonist</h1>
-        <p class="artist-bio">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+    <div class="mobile-content">
+        <div class="artist-content">
+            <div class="artist-header">
+                <div class="artist-header-text">
+                    <h1 class="artist-name">highbrow hedonist</h1>
+                    
+                    <div class="artist-links">
+                        <a href="https://www.instagram.com/highbrow_hedonist/" target="_blank">instagram</a>
+                        <a href="https://highbrowhedonist.com/" target="_blank">website</a>
+                    </div>
 
-        <div class="artist-links">
-            <a href="#">tiktok</a>
-            <a href="#">instagram</a>
-            <a href="#">website</a>
-        </div>
+                    <div class="artist-image">
+                        <img src="artist_image.jpg" alt="highbrow hedonist">
+                    </div>
 
-        <div class="artist-image">
-            <div class="placeholder-img"></div>
-        </div>
-
-        <div class="work-gallery">
-            <div class="work-item">
-                <div class="placeholder-img"></div>
-                <p class="work-description"><span class="work-title">lorem ipsum</span>, 2025</p>
+                    <p class="artist-bio">
+                        madeline mcdonald is a chef, event curator and lover of all things aesthetic. her background is in cooking and baking in restaurant settings and as an avid home cook. in seattle, she helped open the cafe bake shop, in lower queen anne, before moving to new york a few years ago. in new york, she set off to start her own business, first by hosting side walk dinner pop ups in front of her apartment in carroll gardens.</p>
+                </div>
             </div>
-            <div class="work-item">
-                <div class="placeholder-img"></div>
-                <p class="work-description"><span class="work-title">dolor sit amet</span>, 2025</p>
-            </div>
-            <div class="work-item">
-                <div class="placeholder-img"></div>
-                <p class="work-description"><span class="work-title">consectetur</span>, 2025</p>
-            </div>
-        </div>
 
-        <div class="artist-statement">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-        <div class="artist-statement">
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-        </div>
+            <div class="work-gallery">
+                <div class="work-item">
+                    <img src="work%201.jpg" alt="highbrow hedonist work">
+                </div>
+                <div class="work-item">
+                    <img src="work%202.jpg" alt="highbrow hedonist work">
+                </div>
+                <div class="work-item">
+                    <img src="work%203.jpg" alt="highbrow hedonist work">
+                </div>
+                <div class="work-item">
+                    <img src="work%205.jpg" alt="highbrow hedonist work">
+                </div>
+                <div class="work-item">
+                    <img src="work%206.jpeg" alt="highbrow hedonist work">
+                </div>
+                <div class="work-item">
+                    <img src="work%207.jpeg" alt="highbrow hedonist work">
+                </div>
+                <div class="work-item">
+                    <img src="work%208.jpg" alt="highbrow hedonist work">
+                </div>
+                <div class="work-item">
+                    <img src="work%209.jpg" alt="highbrow hedonist work">
+                </div>
+            </div>
 
-        <footer class="site-footer">
-            <span>hear her — a <a href="https://havn.art">havn</a> art installation</span>
-            <span>february 2026</span>
-        </footer>
+            <div class="artist-statements">
+                <p class="artist-statement">
+                    a main feature of her work is bringing people together for a highly curated, yet relaxed environment to stimulate a natural setting for community connection and indulgence. she has been trying out many different avenues to discover what works best in terms of both creativity and function. she is excited to have returned home, seattle, for a hiatus and therefore to have the opportunity to connect with these incredible women.
+                </p>
+                <p class="artist-statement">
+                    for this exhibition, she is excited to try out something more abstract, not simply presenting food in the most obvious edible fashion, but helping to create an experience for the consumer to "play with their food". as always though, she hopes at the foundation of this experience is something that is both nourishing and delicious.
+                </p>
+                <p class="artist-statement">
+                    her model of work is to make most everything she serves, completely from scratch and by hand, giving her food and values a "rustic charm", the exact language one should use to describe it…this experience is allowing her to tap into her more artistic side, with inspiration from the other talented artists in this show. be on the lookout for other events and pop up's in both the seattle and new york areas.
+                </p>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -162,5 +188,7 @@
             });
         }
     </script>
+
+    <footer class="site-footer"><span>web design & code by <a href="https://komal-yadav.com/" target="_blank">komal yadav</a></span><span>© 2026 all rights reserved.</span></footer>
 </body>
 </html>
