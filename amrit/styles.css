@@ -22,7 +22,7 @@ body {
 }
 
 .back-link {
-    position: absolute;
+    position: fixed;
     top: 40px;
     left: 40px;
     color: white;
@@ -31,6 +31,14 @@ body {
     letter-spacing: 0.05em;
     text-transform: lowercase;
     z-index: 100;
+}
+
+.coming-soon {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-style: italic;
+    margin-top: 20px;
+    letter-spacing: 0.05em;
 }
 
 .back-link:hover {
