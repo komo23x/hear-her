@@ -102,6 +102,7 @@ body {
 }
 
 .work-item img,
+.work-item video,
 .work-item .placeholder-img {
     width: 100%;
     max-width: 500px;
@@ -247,6 +248,7 @@ body {
     }
 
     .floating-img img,
+    .floating-img video,
     .floating-img .placeholder-img {
         width: auto;
         height: auto;
@@ -263,15 +265,15 @@ body {
     .float-1 {
         top: 0;
         left: 30%;
-        width: 300px;
-        height: 300px;
+        width: 380px;
+        height: 380px;
     }
 
     .float-2 {
         top: 0;
         right: -40px;
-        width: 280px;
-        height: 280px;
+        width: 360px;
+        height: 360px;
     }
 
     .float-3 {
@@ -283,16 +285,16 @@ body {
 
     .float-4 {
         bottom: 0;
-        left: calc(50% - 130px);
-        width: 260px;
-        height: 260px;
+        left: calc(50% - 170px);
+        width: 340px;
+        height: 340px;
     }
 
     .float-5 {
         bottom: 15%;
         right: 15%;
-        width: 280px;
-        height: 280px;
+        width: 360px;
+        height: 360px;
     }
 
     /* Desktop scrollable content */
@@ -350,6 +352,7 @@ body {
     }
 
     .desktop-content .work-item img,
+    .desktop-content .work-item video,
     .desktop-content .work-item .placeholder-img {
         max-width: none;
         width: 100%;
@@ -415,15 +418,18 @@ body {
     .gallery-row {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
+        align-items: start;
         gap: 30px;
         margin-bottom: 300px;
     }
 
     .gallery-item {
         position: relative;
+        overflow: hidden;
     }
 
     .gallery-item img,
+    .gallery-item video,
     .gallery-item .placeholder-img {
         width: 100%;
         height: auto;

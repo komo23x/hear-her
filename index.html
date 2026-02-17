@@ -100,7 +100,8 @@
             animation-play-state: paused;
         }
 
-        .scattered-img img {
+        .scattered-img img,
+        .scattered-img video {
             width: 100%;
             height: auto;
             display: block;
@@ -109,11 +110,13 @@
             transition: filter 0.4s ease;
         }
 
-        .scattered-img:hover img {
+        .scattered-img:hover img,
+        .scattered-img:hover video {
             filter: blur(0);
         }
 
-        .scattered-img.dragging img {
+        .scattered-img.dragging img,
+        .scattered-img.dragging video {
             filter: blur(0);
         }
 
@@ -130,8 +133,8 @@
         }
 
         .scatter-3 {
-            top: 45%;
-            left: 5%;
+            top: 52%;
+            left: 1%;
             width: 140px;
             z-index: 2;
         }
@@ -206,9 +209,37 @@
         }
 
         .scatter-16 {
-            top: 60%;
-            right: 10%;
+            top: 68%;
+            right: 5%;
             width: 155px;
+        }
+
+        .scatter-17 {
+            top: 10%;
+            right: 2%;
+            width: 150px;
+        }
+
+        .scatter-18 {
+            top: 22%;
+            left: 18%;
+            width: 145px;
+            z-index: -1;
+            animation: floatDrift 8s ease-in-out infinite;
+            animation-delay: 3s;
+        }
+
+        .scatter-19 {
+            top: 22%;
+            left: -3%;
+            width: 160px;
+            z-index: 3;
+        }
+
+        .scatter-20 {
+            top: 52%;
+            right: 0%;
+            width: 150px;
         }
 
         /* Hide scattered images on mobile */
@@ -735,6 +766,18 @@
         </div>
         <div class="scattered-img scatter-16" data-artist="highbrow-hedonist">
             <img src="highbrow-hedonist/artist_image%202.webp" alt="highbrow hedonist" draggable="false">
+        </div>
+        <div class="scattered-img scatter-17" data-artist="tidy">
+            <img src="tidy/work%201.jpeg" alt="tidy totes work" draggable="false">
+        </div>
+        <div class="scattered-img scatter-18" data-artist="tidy">
+            <img src="tidy/work%202.jpeg" alt="tidy totes work" draggable="false">
+        </div>
+        <div class="scattered-img scatter-19" data-artist="komal">
+            <video src="komal/work%203%20trimmed.mov" autoplay muted loop playsinline draggable="false"></video>
+        </div>
+        <div class="scattered-img scatter-20" data-artist="highbrow-hedonist">
+            <img src="highbrow-hedonist/work%205.jpg" alt="highbrow hedonist work" draggable="false">
         </div>
     </div>
     
