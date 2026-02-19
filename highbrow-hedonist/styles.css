@@ -1,11 +1,25 @@
 /* TEMPORARY: blur artwork until show day */
-.floating-img:not(.float-3),
-.desktop-staggered-gallery .gallery-item,
-.work-gallery .work-item,
-.desktop-content .work-gallery .work-item {
+.floating-img:not(.float-3) img,
+.floating-img:not(.float-3) video,
+.desktop-staggered-gallery .gallery-item img,
+.desktop-staggered-gallery .gallery-item video,
+.work-gallery .work-item img,
+.work-gallery .work-item video,
+.desktop-content .work-gallery .work-item img {
     filter: blur(25px) !important;
     -webkit-filter: blur(25px) !important;
     transition: none !important;
+}
+.desktop-staggered-gallery .gallery-item,
+.desktop-content .work-gallery .work-item {
+    overflow: visible !important;
+}
+.mobile-content .work-gallery .work-item {
+    padding: 30px !important;
+}
+.mobile-content .work-gallery .work-item img,
+.mobile-content .work-gallery .work-item video {
+    width: 100% !important;
 }
 
 * {
