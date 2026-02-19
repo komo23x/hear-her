@@ -717,7 +717,7 @@
 
     <div class="main-content" id="mainContent">
     <!-- Video background (mobile only) -->
-    <video class="video-background" id="videoBackground" autoplay muted loop playsinline webkit-playsinline>
+    <video class="video-background" id="videoBackground" autoplay muted loop playsinline webkit-playsinline preload="auto">
     </video>
 
     <!-- Desktop scattered images -->
@@ -854,7 +854,10 @@
         // Use mobile video for all screen sizes
         video.src = 'background-video-mobile.mp4';
         
+        let overlayHidden = false;
         function hideOverlay() {
+            if (overlayHidden) return;
+            overlayHidden = true;
             // Unblur the main content
             document.getElementById('mainContent').classList.add('unblurred');
             tapOverlay.classList.add('hidden');
@@ -888,19 +891,28 @@
             }
             
             // Handle tap/click on overlay (mobile only)
-            tapOverlay.addEventListener('click', function(e) {
+            let hasEntered = false;
+            function enterSite(e) {
+                if (hasEntered) return;
+                hasEntered = true;
                 e.preventDefault();
-                video.play().then(hideOverlay).catch(function() {
+                // Play video first (must be in user gesture context for mobile)
+                var playPromise = video.play();
+                if (playPromise !== undefined) {
+                    playPromise.then(function() {
+                        hideOverlay();
+                    }).catch(function() {
+                        // Even if play fails, still let them in
+                        hideOverlay();
+                    });
+                } else {
                     hideOverlay();
-                });
-            });
-            
-            tapOverlay.addEventListener('touchstart', function(e) {
-                e.preventDefault();
-                video.play().then(hideOverlay).catch(function() {
-                    hideOverlay();
-                });
-            }, { passive: false });
+                }
+                // Safety fallback: if promise hangs, hide overlay after 1s
+                setTimeout(function() { hideOverlay(); }, 1000);
+            }
+            tapOverlay.addEventListener('click', enterSite);
+            tapOverlay.addEventListener('touchend', enterSite, { passive: false });
         }
 
         // Graceful video loop - restart slightly before end to avoid flash
