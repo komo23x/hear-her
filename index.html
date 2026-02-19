@@ -106,18 +106,23 @@
             height: auto;
             display: block;
             pointer-events: none;
-            filter: blur(15px);
+            transition: none;
+        }
+
+        .scattered-img {
+            filter: blur(25px);
+            -webkit-filter: blur(25px);
+        }
+
+        .scattered-img.artist-portrait:hover {
+            filter: blur(0);
+            -webkit-filter: blur(0);
             transition: filter 0.4s ease;
         }
 
-        .scattered-img:hover img,
-        .scattered-img:hover video {
+        .scattered-img.artist-portrait.dragging {
             filter: blur(0);
-        }
-
-        .scattered-img.dragging img,
-        .scattered-img.dragging video {
-            filter: blur(0);
+            -webkit-filter: blur(0);
         }
 
         .scatter-1 {
@@ -304,6 +309,35 @@
         .center-logo img {
             max-width: 450px;
             height: auto;
+        }
+
+        .center-logo .artwork-notice {
+            text-align: center;
+            color: white;
+            font-size: 0.8rem;
+            letter-spacing: 0.05em;
+            text-transform: lowercase;
+            margin-top: 8px;
+            opacity: 0.8;
+        }
+
+        .artwork-notice {
+            position: fixed;
+            bottom: 42px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #2a4157;
+            font-size: 0.75rem;
+            letter-spacing: 0.02em;
+            text-transform: lowercase;
+            z-index: 10;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 480px) {
+            .artwork-notice {
+                display: none;
+            }
         }
 
         /* Right side event info */
@@ -607,6 +641,10 @@
             .site-footer a {
                 color: white;
             }
+
+            .artwork-notice {
+                color: white;
+            }
         }
 
         /* Artist overlay */
@@ -728,7 +766,7 @@
         <div class="scattered-img scatter-2" data-artist="kieryn">
             <img src="kieryn/work%202.jpg" alt="artwork" draggable="false">
         </div>
-        <div class="scattered-img scatter-3" data-artist="kieryn">
+        <div class="scattered-img scatter-3 artist-portrait" data-artist="kieryn">
             <img src="kieryn/artist_image.jpg" alt="artist" draggable="false">
         </div>
         <div class="scattered-img scatter-4" data-artist="kieryn">
@@ -737,13 +775,13 @@
         <div class="scattered-img scatter-5" data-artist="kieryn">
             <img src="kieryn/work%204.jpg" alt="artwork" draggable="false">
         </div>
-        <div class="scattered-img scatter-6" data-artist="tidy">
+        <div class="scattered-img scatter-6 artist-portrait" data-artist="tidy">
             <img src="tidy/artist_image.jpg" alt="tidy totes" draggable="false">
         </div>
-        <div class="scattered-img scatter-7" data-artist="komal">
+        <div class="scattered-img scatter-7 artist-portrait" data-artist="komal">
             <img src="komal/artist_image.jpg" alt="komal yadav" draggable="false">
         </div>
-        <div class="scattered-img scatter-8" data-artist="nubiya">
+        <div class="scattered-img scatter-8 artist-portrait" data-artist="nubiya">
             <img src="nubiya/artist_image.jpeg" alt="nubiya zavala" draggable="false">
         </div>
         <div class="scattered-img scatter-9" data-artist="nubiya">
@@ -752,7 +790,7 @@
         <div class="scattered-img scatter-11" data-artist="nubiya">
             <img src="nubiya/work%203.JPG" alt="nubiya zavala work" draggable="false">
         </div>
-        <div class="scattered-img scatter-12" data-artist="isabelle">
+        <div class="scattered-img scatter-12 artist-portrait" data-artist="isabelle">
             <img src="isabelle/artist_image.jpg" alt="isabelle zhao" draggable="false">
         </div>
         <div class="scattered-img scatter-13" data-artist="isabelle">
@@ -761,10 +799,10 @@
         <div class="scattered-img scatter-14" data-artist="isabelle">
             <img src="isabelle/work%202.jpg" alt="isabelle zhao work" draggable="false">
         </div>
-        <div class="scattered-img scatter-15" data-artist="soleilroz">
+        <div class="scattered-img scatter-15 artist-portrait" data-artist="soleilroz">
             <img src="soleilroz/artist_image.JPG" alt="soleilroz" draggable="false">
         </div>
-        <div class="scattered-img scatter-16" data-artist="highbrow-hedonist">
+        <div class="scattered-img scatter-16 artist-portrait" data-artist="highbrow-hedonist">
             <img src="highbrow-hedonist/artist_image%202.webp" alt="highbrow hedonist" draggable="false">
         </div>
         <div class="scattered-img scatter-17" data-artist="tidy">
@@ -1128,6 +1166,7 @@
     </script>
     </div><!-- end main-content -->
 
+    <p class="artwork-notice">artwork will be available to view online during and after the show</p>
     <footer class="site-footer"><span class="desktop-text">web design & code by <a href="https://komal-yadav.com/" target="_blank">komal yadav</a> © 2026 all rights reserved.</span><span class="mobile-text">web design by <a href="https://komal-yadav.com/" target="_blank">komal</a><br>© 2026 all rights reserved.</span></footer>
 </body>
 </html>
