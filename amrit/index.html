@@ -4,10 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>amrit singh - hear her</title>
-    <style>/* Critical: blur artwork before images render */
-    .floating-img:not(.float-3) img,.floating-img:not(.float-3) video,.floating-img:not(.float-3) .placeholder-img,.desktop-staggered-gallery .gallery-item img,.desktop-staggered-gallery .gallery-item video,.desktop-staggered-gallery .gallery-item .placeholder-img,.work-gallery .work-item img,.work-gallery .work-item video,.work-gallery .work-item .placeholder-img,.desktop-content .work-gallery .work-item img{filter:blur(25px)!important;-webkit-filter:blur(25px)!important;transition:none!important;opacity:0;animation:showBlurred 0s .15s forwards}
-    @keyframes showBlurred{to{opacity:1}}
-    </style>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -24,19 +20,19 @@
         </div>
         
         <div class="floating-img float-1">
-            <div class="placeholder-img"></div>
+            <img src="work1.jpg" alt="work 1">
         </div>
         <div class="floating-img float-2">
-            <div class="placeholder-img"></div>
+            <img src="work2.jpg" alt="work 2">
         </div>
         <div class="floating-img float-3" onclick="document.querySelector('.artist-statement-row').scrollIntoView({behavior: 'smooth', block: 'center'})">
             <img src="artist_image.jpeg" alt="amrit singh">
         </div>
         <div class="floating-img float-4">
-            <div class="placeholder-img"></div>
+            <img src="work3.jpg" alt="work 3">
         </div>
         <div class="floating-img float-5">
-            <div class="placeholder-img"></div>
+            <img src="work4.jpg" alt="work 4">
         </div>
     </section>
 
@@ -49,33 +45,18 @@
 
     <!-- Desktop Staggered Gallery -->
     <section class="desktop-staggered-gallery">
-        <div class="gallery-row gallery-row-3">
+        <div class="gallery-row">
             <div class="gallery-item">
-                <div class="placeholder-img"></div>
-                <p class="gallery-caption"><span class="work-title">"reliable joy"</span><br>ceramic with glaze<br>2026</p>
+                <img src="work1.jpg" alt="work 1">
             </div>
             <div class="gallery-item">
-                <div class="placeholder-img"></div>
-                <p class="gallery-caption"><span class="work-title">"nila's lineage"</span><br>ceramic with glaze<br>2026</p>
+                <img src="work2.jpg" alt="work 2">
             </div>
             <div class="gallery-item">
-                <div class="placeholder-img"></div>
-                <p class="gallery-caption"><span class="work-title">"pastime"</span><br>ceramic with glaze, metal wire<br>2026</p>
-            </div>
-        </div>
-
-        <div class="gallery-row gallery-row-3">
-            <div class="gallery-item">
-                <div class="placeholder-img"></div>
-                <p class="gallery-caption"><span class="work-title">"leaping nila"</span><br>ceramic with glaze<br>2026</p>
+                <img src="work3.jpg" alt="work 3">
             </div>
             <div class="gallery-item">
-                <div class="placeholder-img"></div>
-                <p class="gallery-caption"><span class="work-title">"amar pad 1"</span><br>ceramic with glaze<br>2026</p>
-            </div>
-            <div class="gallery-item">
-                <div class="placeholder-img"></div>
-                <p class="gallery-caption"><span class="work-title">"amar pad 2"</span><br>ceramic with glaze<br>2026</p>
+                <img src="work4.jpg" alt="work 4">
             </div>
         </div>
 
@@ -95,52 +76,50 @@
         </div>
     </section>
 
-    <!-- Mobile Content -->
-    <div class="artist-content mobile-content">
-        <h1 class="artist-name">amrit singh</h1>
+    <!-- Mobile Content (original layout) -->
+    <div class="mobile-content">
+        <div class="artist-content">
+            <div class="artist-header">
+                <div class="artist-header-text">
+                    <h1 class="artist-name">amrit singh</h1>
+                    
+                    <div class="artist-links">
+                        <a href="https://www.tiktok.com/@___umrith" target="_blank">tiktok</a>
+                        <a href="https://www.instagram.com/___umrith/" target="_blank">instagram</a>
+                    </div>
 
-        <div class="artist-image">
-            <img src="artist_image.jpeg" alt="amrit singh">
+                    <div class="artist-image">
+                        <img src="artist_image.jpeg" alt="amrit singh">
+                    </div>
+
+                    <p class="artist-bio">Amrit Singh is a Punjabi Sikh multidisciplinary artist specializing in ceramics. Alongside her studio practice, Amrit serves as a death doula and hospice nurse, accompanying individuals and families at the end of life.</p>
+                </div>
+            </div>
+
+            <div class="work-gallery">
+                <div class="work-item">
+                    <img src="work1.jpg" alt="work 1">
+                </div>
+                <div class="work-item">
+                    <img src="work2.jpg" alt="work 2">
+                </div>
+                <div class="work-item">
+                    <img src="work3.jpg" alt="work 3">
+                </div>
+                <div class="work-item">
+                    <img src="work4.jpg" alt="work 4">
+                </div>
+            </div>
+
+            <div class="artist-statements">
+                <p class="artist-statement">
+                    Bearing witness to the threshold between life and death on a daily basis has shaped how Amrit creates and lives. The roles she embodies as a daughter, sister, massi, friend, and partner are carried with deep gratitude for their teachings towards connection.
+                </p>
+                <p class="artist-statement">
+                    Similarly, Amrit's ceramics are a testament to the rapport she builds with each piece as she honors their fragility, resiliency, and capacity to hold memory. The union of her two worlds invites us to reflect on our own impermanence and the sacred cycles of dissolution and return.
+                </p>
+            </div>
         </div>
-
-        <div class="artist-links">
-            <a href="https://www.tiktok.com/@___umrith" target="_blank">tiktok</a>
-            <a href="https://www.instagram.com/___umrith/" target="_blank">instagram</a>
-        </div>
-
-        <p class="artist-bio">Amrit Singh is a Punjabi Sikh multidisciplinary artist specializing in ceramics. Alongside her studio practice, Amrit serves as a death doula and hospice nurse, accompanying individuals and families at the end of life.</p>
-
-        <div class="work-gallery">
-            <div class="work-item">
-                <div class="placeholder-img"></div>
-                <p class="work-description"><span class="work-title">"reliable joy"</span></p>
-            </div>
-            <div class="work-item">
-                <div class="placeholder-img"></div>
-                <p class="work-description"><span class="work-title">"nila's lineage"</span></p>
-            </div>
-            <div class="work-item">
-                <div class="placeholder-img"></div>
-                <p class="work-description"><span class="work-title">"pastime"</span></p>
-            </div>
-            <div class="work-item">
-                <div class="placeholder-img"></div>
-                <p class="work-description"><span class="work-title">"leaping nila"</span></p>
-            </div>
-            <div class="work-item">
-                <div class="placeholder-img"></div>
-                <p class="work-description"><span class="work-title">"amar pad 1"</span></p>
-            </div>
-            <div class="work-item">
-                <div class="placeholder-img"></div>
-                <p class="work-description"><span class="work-title">"amar pad 2"</span></p>
-            </div>
-        </div>
-
-        <div class="artist-statement">
-            <p>artist statement coming soon</p>
-        </div>
-
     </div>
 
     <script>
