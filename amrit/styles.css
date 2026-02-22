@@ -466,7 +466,7 @@ body {
     .artist-statement-row {
         display: flex;
         gap: 80px;
-        align-items: center;
+        align-items: flex-start;
         margin: 0 auto;
         padding-bottom: 100px;
         max-width: 1200px;
@@ -517,6 +517,7 @@ body {
         text-align: justify;
         max-width: 650px;
         position: relative;
+        padding-top: 20px;
     }
 
     .artist-statement-text p {
